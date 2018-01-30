@@ -11,7 +11,7 @@ Specs can be looked up with the ean: EAN / ISBN-13:	0885370757934.
 
 - 128GB SSD
 
-- Intel i3 1.9-2.9 Ghz
+- Intel i5 1.9-2.9 Ghz
 
 - 4 GB RAM
 
