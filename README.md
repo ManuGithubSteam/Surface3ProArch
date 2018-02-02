@@ -24,8 +24,9 @@ Specs can be looked up with the ean: EAN / ISBN-13:	0885370757934.
 ## Basics
 
 1. Install all Firmware updates you can find with Windows
-2. After that remove revcery Partitions, just leave the EFI Partition.
+2. After that remove recovery Partitions, just leave the EFI Partition.
 3. Download recent Anthergos Linux
 4. Disable Secureboot
 5. Boot Arch and install with EFI Pratition intact (with kernel 4.14 all major stuff is supported). Use EXT4.
-5.a If WIFI fails during install (it should be stable afterwards) make a WUB bridge with your phone.
+5. a) If WIFI fails during install (it should be stable afterwards) make a USB bridge with your phone.
+6. Install powertop laptop-mode-tools laptop-detect linux-surfacepro3-git
