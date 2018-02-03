@@ -28,7 +28,7 @@ Specs can be looked up with the ean: EAN / ISBN-13:	0885370757934.
 3. Download recent Anthergos Linux
 4. Disable Secureboot
 5. Boot Arch and install with EFI Partition intact (with kernel 4.14 all major stuff is supported). Use BTRFS.
-5. a) If WIFI fails during install (it should be stable afterwards) make a USB bridge with your phone.
+5. a) If WIFI fails during install (it should be stable afterwards USE 5Ghz WIFI!) make a USB bridge with your phone.
 
 ## Install Surface kernel and power tools
 
@@ -44,7 +44,7 @@ Download the snapshot of laptop-mode-tools
 
 -> https://aur.archlinux.org/packages/laptop-mode-tools/
 
-8. Build laptop-mode-tools with makepkg then install the pakage 
+8. Build laptop-mode-tools with makepkg then install the pakage makepkg --install
 
 9. Build and install surface Kernel
 
@@ -55,10 +55,11 @@ yaourt -S linux-surfacepro3-git
 nano /etc/locale.gen uncomment
 
 en_US.UTF-8 UTF8
+
 en_DK.UTF-8 UTF8 # gives European Units and A4 Paper size
 
 locale-gen
 
-Change in Gnome Settings
+Change in Gnome Settings.
 
 
