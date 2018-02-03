@@ -53,7 +53,17 @@ with `makepkg` then install the pakage `makepkg --install`
 
 `yaourt -S linux-surfacepro3-git`
 
-After install reboot the System
+Make a grub.cfg
+
+`grub-mkconfig -o /boot/grub/grub.cfg`
+
+Change the kernel line to the surface ones
+
+`initramfs-linux.img` to `initramfs-linux-surfacepro3-git.img`
+
+`vmlinux` to `vmlinux-surfacepro3-git` in the grub.cfg
+
+After that reboot the System.
 
 ## Fix Wifi
 
