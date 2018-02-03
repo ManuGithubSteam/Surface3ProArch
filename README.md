@@ -3,7 +3,7 @@ Linux (Arch) on the Microsoft Surface 3 Pro. Tipps and Workarounds
 ------
 I wanted a convertible with good Linux support. After some toying with the T100TA (with like 85% of support) who is quite good but as the touchpad and touch in gerneal was flunky(2017). I could not see myself work with that. Long Term.
 
-So here is to new beginnings with the Microsoft Surface 3 Pro.
+So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gnome desktop for best touch support.
 
 Specs can be looked up with the ean: EAN / ISBN-13:	0885370757934.
 
@@ -32,26 +32,34 @@ Specs can be looked up with the ean: EAN / ISBN-13:	0885370757934.
 
 ## Install Surface kernel and power tools
 
-### 1. Install some stuff:
+### Install some stuff:
 
 `pacman -Syu powertop laptop-detect yaourt pavucontrol`
 
-### 2. Deactivate tmpfs (uses too much valuable ram and can NOT build kernel in it!)
+### Deactivate tmpfs 
+(uses too much valuable ram and can NOT build kernel in it!)
 
 `systemctl mask tmp.mount`
 reboot.
 
-### 3. Download the snapshot of laptop-mode-tools
+### Download the snapshot of laptop-mode-tools
 
 -> https://aur.archlinux.org/packages/laptop-mode-tools/
 
-### 4. Build laptop-mode-tools with `makepkg` then install the pakage `makepkg --install`
+### Build laptop-mode-tools 
+with `makepkg` then install the pakage `makepkg --install`
 
-### 5. Build and install surface Kernel
+### Build and install surface Kernel
 
 `yaourt -S linux-surfacepro3-git`
 
-### 6. While this is running change system Language to English and leave the Input to German keayboard.
+After install reboot the System
+
+## Optimizations
+
+While the kernel in compiling we have some time to do some system optimizations :-)
+
+### Change system Language to English and leave the Input to German keayboard.
 
 `nano /etc/locale.gen` uncomment
 
@@ -63,5 +71,8 @@ reboot.
 
 Change in Gnome Settings.
 
-### 7. Reboot after kernel install.
+### Deactivate Gnome file tracking
+Saves a bit of RAM.
+
+Just deactivate all the "Search" Options in the Gnome Settings.
 
