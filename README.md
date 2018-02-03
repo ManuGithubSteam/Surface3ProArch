@@ -81,6 +81,13 @@ Put the following in `/etc/NetworkManager/NetworkManager.conf` to make it perman
 
 `wifi.scan-rand-mac-address=no`
 
+## Switch suspend for hibernate
+
+sudo rm -Rf /etc/systemd/system/suspend.target && sudo ln -sf /usr/lib/systemd/system/hibernate.target /etc/systemd/system/suspend.target
+
+sudo rm -Rf /etc/systemd/system/systemd-suspend.service && ln -sf /usr/lib/systemd/system/systemd-hibernate.service /etc/systemd/system/systemd-suspend.service
+
+
 ## Optimizations
 
 While the kernel in compiling we have some time to do some system optimizations :-)
