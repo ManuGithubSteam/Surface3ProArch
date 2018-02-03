@@ -55,6 +55,18 @@ with `makepkg` then install the pakage `makepkg --install`
 
 After install reboot the System
 
+## Fix Wifi
+
+Put the following in /etc/NetworkManager/NetworkManager.conf to make it permanent. This will disable both power management and MAC randomization:
+
+[connection]
+wifi.powersave=2  # 2=disable
+wifi.mac-address-randomization=1 # 1=disable
+wifi.cloned-mac-address=permanent
+
+[device]
+wifi.scan-rand-mac-address=no
+
 ## Optimizations
 
 While the kernel in compiling we have some time to do some system optimizations :-)
@@ -75,4 +87,5 @@ Change in Gnome Settings.
 Saves a bit of RAM.
 
 Just deactivate all the "Search" Options in the Gnome Settings.
+
 
