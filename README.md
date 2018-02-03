@@ -34,31 +34,31 @@ Specs can be looked up with the ean: EAN / ISBN-13:	0885370757934.
 
 6. Install some stuff:
 
-pacman -Syu powertop laptop-detect yaourt pavucontrol
+`pacman -Syu powertop laptop-detect yaourt pavucontrol`
 
 7. Deactivate tmpfs (uses too much valuable ram and can NOT build kernel in it!)
 
-systemctl mask tmp.mount
+`systemctl mask tmp.mount`
 
 Download the snapshot of laptop-mode-tools
 
 -> https://aur.archlinux.org/packages/laptop-mode-tools/
 
-8. Build laptop-mode-tools with makepkg then install the pakage makepkg --install
+8. Build laptop-mode-tools with `makepkg` then install the pakage `makepkg --install`
 
 9. Build and install surface Kernel
 
-yaourt -S linux-surfacepro3-git
+`yaourt -S linux-surfacepro3-git`
 
 10. While this is running change system Language to English and leave the Input to German keayboard.
 
-nano /etc/locale.gen uncomment
+`nano /etc/locale.gen` uncomment
 
-en_US.UTF-8 UTF8
+`en_US.UTF-8 UTF8`
 
-en_DK.UTF-8 UTF8 # gives European Units and A4 Paper size
+`en_DK.UTF-8 UTF8 # gives European Units and A4 Paper size`
 
-locale-gen
+`locale-gen`
 
 Change in Gnome Settings.
 
