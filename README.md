@@ -60,11 +60,15 @@ After install reboot the System
 Put the following in `/etc/NetworkManager/NetworkManager.conf` to make it permanent. This will disable both power management and MAC randomization (Thanks:https://www.reddit.com/r/SurfaceLinux/comments/75sl8t/potential_fix_for_wifi_disconnects_on_sp3/doofqgu/ ):
 
 `[connection]`
+
 `wifi.powersave=2  # 2=disable`
+
 `wifi.mac-address-randomization=1 # 1=disable`
+
 `wifi.cloned-mac-address=permanent`
 
 `[device]`
+
 `wifi.scan-rand-mac-address=no`
 
 ## Optimizations
