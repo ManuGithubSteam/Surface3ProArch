@@ -21,12 +21,44 @@ Specs can be looked up with the ean: EAN / ISBN-13:	0885370757934.
 
 - Mini HDMI
 
-## Basics
+## Basic Installation
 
-1. Install all Firmware updates you can find with Windows
-2. After that remove recovery Partitions, just leave the EFI Partition.
+1. Install all Firmware updates you can find with WIDNOWS.
+2. After that remove recovery Partitions, just leave the EFI Partition. (Has ca 300mb at the beginning of the disak empty)
 3. Download recent Anthergos Linux
 4. Disable Secureboot
-5. Boot Arch and install with EFI Pratition intact (with kernel 4.14 all major stuff is supported). Use EXT4.
+5. Boot Arch and install with EFI Partition intact (with kernel 4.14 all major stuff is supported). Use BTRFS.
 5. a) If WIFI fails during install (it should be stable afterwards) make a USB bridge with your phone.
-6. Install powertop laptop-mode-tools laptop-detect linux-surfacepro3-git
+
+## Install Surface kernel and power tools
+
+6. Install some stuff:
+
+pacman -Syu powertop laptop-detect yaourt pavucontrol
+
+7. Deactivate tmpfs (uses too much valuable ram and can NOT build kernel in it!)
+
+systemctl mask tmp.mount
+
+Download the snapshot of laptop-mode-tools
+
+-> https://aur.archlinux.org/packages/laptop-mode-tools/
+
+8. Build laptop-mode-tools with makepkg then install the pakage 
+
+9. Build and install surface Kernel
+
+yaourt -S linux-surfacepro3-git
+
+10. While this is running change system Language to English and leave the Input to German keayboard.
+
+nano /etc/locale.gen uncomment
+
+en_US.UTF-8 UTF8
+en_DK.UTF-8 UTF8 # gives European Units and A4 Paper size
+
+locale-gen
+
+Change in Gnome Settings
+
+
