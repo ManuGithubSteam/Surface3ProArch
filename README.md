@@ -32,25 +32,26 @@ Specs can be looked up with the ean: EAN / ISBN-13:	0885370757934.
 
 ## Install Surface kernel and power tools
 
-6. Install some stuff:
+### 1. Install some stuff:
 
 `pacman -Syu powertop laptop-detect yaourt pavucontrol`
 
-7. Deactivate tmpfs (uses too much valuable ram and can NOT build kernel in it!)
+### 2. Deactivate tmpfs (uses too much valuable ram and can NOT build kernel in it!)
 
 `systemctl mask tmp.mount`
+reboot.
 
-Download the snapshot of laptop-mode-tools
+### 3. Download the snapshot of laptop-mode-tools
 
 -> https://aur.archlinux.org/packages/laptop-mode-tools/
 
-8. Build laptop-mode-tools with `makepkg` then install the pakage `makepkg --install`
+### 4. Build laptop-mode-tools with `makepkg` then install the pakage `makepkg --install`
 
-9. Build and install surface Kernel
+### 5. Build and install surface Kernel
 
 `yaourt -S linux-surfacepro3-git`
 
-10. While this is running change system Language to English and leave the Input to German keayboard.
+### 6. While this is running change system Language to English and leave the Input to German keayboard.
 
 `nano /etc/locale.gen` uncomment
 
@@ -62,4 +63,5 @@ Download the snapshot of laptop-mode-tools
 
 Change in Gnome Settings.
 
+### 7. Reboot after kernel install.
 
