@@ -184,6 +184,18 @@ Then update the boot entries:
 
 When you reboot you will have to activate secureboot hash the grubx64.efi binary with the hash tool. After that you can boot grub with secureboot active.
 
+## Bluethooth / Headphones
+
+Modify `/lib/systemd/system/bluetooth.service`, changing the Exec line to this:
+
+`ExecStart=/usr/libexec/bluetooth/bluetoothd --experimental`
+
+Adding the "experimental" line will let things like Bose products work with bluetooth.
+
+Also, if you’re a pulseaudio user, add this line to the end of `/etc/pulse/default.pa`, and when your headphones connect Pulseaudio will automatically re-route the audio, rather than your having to do it manually.
+
+`load-module module-switch-on-connect`
+
 ## Optimizations
 
 While the kernel in compiling we have some time to do some system optimizations :-)
