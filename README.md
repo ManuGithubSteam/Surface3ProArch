@@ -93,13 +93,16 @@ Put the following in `/etc/NetworkManager/NetworkManager.conf` to make it perman
 ## Suspend and Hibernate
 
 After some testing it seems that hibernate and secureboot do not work well togehter.
-For that reason i will not go into deatil about hibernate here. 
+For that reason i will not go into deatil about hibernation here. 
 
-After all it boots fast with SSd and with Hibernate there are different issues with wifi and touchscreen not coming up again. So
+After all it boots fast with SSD and with Hibernate there are different issues with wifi and touchscreen not coming up again. 
 
 ### Deactivate Hibernate and Suspend
 
+`systemctl mask hibernate.target`
+`systemctl mask suspend.target`
 
+Also edit /default/grub and remove the resume line in the DEFAULTS section.
 
 ## Install GDM
 
