@@ -142,7 +142,7 @@ If there are problems booting the custom NVRAM entry, copy HashTool.efi and load
 
 `cp /usr/share/preloader-signed/HashTool.efi /boot/efi/EFI/Boot`
 
-`cp esp/EFI/systemd/systemd-bootx64.efi /boot/efi/EFI/Boot/loader.efi`
+`cp /boot/efi/EFI/systemd/systemd-bootx64.efi /boot/efi/EFI/Boot/loader.efi`
 
 Copy over PreLoader.efi and rename it:
 
