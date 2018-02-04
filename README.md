@@ -150,9 +150,9 @@ Copy over PreLoader.efi and rename it:
 
 For particularly intransigent UEFI implementations, copy PreLoader.efi to the default loader location used by Windows systems:
 
-`mkdir -p esp/EFI/Microsoft/Boot`
+`mkdir -p /boot/efi/EFI/Microsoft/Boot`
 
-`cp /usr/share/preloader-signed/PreLoader.efi esp/EFI/Microsoft/Boot/bootmgfw.efi`
+`cp /usr/share/preloader-signed/PreLoader.efi /boot/efi/EFI/Microsoft/Boot/bootmgfw.efi`
 
 __Note:__ If dual-booting with Windows, backup the original bootmgfw.efi first as replacing it may cause problems with Windows updates. As before, copy HashTool.efi and loader.efi to esp/EFI/Microsoft/Boot/.
 
