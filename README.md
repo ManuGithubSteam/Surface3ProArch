@@ -90,26 +90,16 @@ Put the following in `/etc/NetworkManager/NetworkManager.conf` to make it perman
 
 `wifi.scan-rand-mac-address=no`
 
-## Switch suspend for hibernate
+## Suspend and Hibernate
 
-Suspend is broken on newer systems so we switch it for hibernate.
+After some testing it seems that hibernate and secureboot do not work well togehter.
+For that reason i will not go into deatil about hibernate here. 
 
-`sudo rm -Rf /etc/systemd/system/suspend.target && sudo ln -sf /usr/lib/systemd/system/hibernate.target /etc/systemd/system/suspend.target`
+After all it boots fast with SSd and with Hibernate there are different issues with wifi and touchscreen not coming up again. So
 
-`sudo rm -Rf /etc/systemd/system/systemd-suspend.service && ln -sf /usr/lib/systemd/system/systemd-hibernate.service /etc/systemd/system/systemd-suspend.service`
+### Deactivate Hibernate and Suspend
 
-For hibernation to work you have to change some stuff too:
 
-The following script goes into /lib/systemd/system-sleep/mwifiex, and has to be chown root mwifiex; chmod 755 mwifiex in order to run correctly.
-
-#!/bin/sh
-set -e
-
-if [ "$2" = "hibernate" ]; then
-    case "$1" in
-        pre) modprobe -r mwifiex_pcie mwifiex ;;
-        post) modprobe mwifiex_pcie ;;
-    esac
 
 ## Install GDM
 
@@ -212,4 +202,9 @@ Saves a bit of RAM.
 
 Just deactivate all the "Search" Options in the Gnome Settings.
 
+### Disable touchpad while typing text
+
+Put this in the Gnome Autostart:
+
+`syndaemon -i 1 -d -t`
 
