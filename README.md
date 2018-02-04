@@ -122,13 +122,13 @@ Install the signed gummiboot loader.
 
 Then copy it to the right places.
 
-`cp /usr/share/preloader-signed/{PreLoader,HashTool}.efi esp/EFI/systemd`
+`cp /usr/share/preloader-signed/{PreLoader,HashTool}.efi /boot/efi/EFI/systemd`
 Now copy over the boot loader binary and rename it to loader.efi; for systemd-boot use:
 
-`cp esp/EFI/systemd/systemd-bootx64.efi esp/EFI/systemd/loader.efi`
+`cp esp/EFI/systemd/systemd-bootx64.efi /boot/efi/EFI/systemd/loader.efi`
 Finally, create a new NVRAM entry to boot PreLoader.efi:
 
-`efibootmgr --disk /dev/sdX --part Y --create --label "PreLoader" --loader /EFI/systemd/PreLoader.efi`
+`efibootmgr --disk /dev/sda --part 1 --create --label "PreLoader" --loader /EFI/systemd/PreLoader.efi`
 Replace X with the drive letter and replace Y with the partition number of the EFI System Partition.
 
 This entry should be added to the list as the first to boot; check with the efibootmgr command and adjust the boot-order if necessary.
@@ -138,14 +138,17 @@ If there are problems booting the custom NVRAM entry, copy HashTool.efi and load
 
 `cp /usr/share/preloader-signed/HashTool.efi esp/EFI/Boot`
 `cp esp/EFI/systemd/systemd-bootx64.efi esp/EFI/Boot/loader.efi`
+
 Copy over PreLoader.efi and rename it:
 
 `cp /usr/share/preloader-signed/PreLoader.efi esp/EFI/Boot/bootx64.efi`
+
 For particularly intransigent UEFI implementations, copy PreLoader.efi to the default loader location used by Windows systems:
 
 `mkdir -p esp/EFI/Microsoft/Boot`
 `cp /usr/share/preloader-signed/PreLoader.efi esp/EFI/Microsoft/Boot/bootmgfw.efi`
-Note: If dual-booting with Windows, backup the original bootmgfw.efi first as replacing it may cause problems with Windows updates. As before, copy HashTool.efi and loader.efi to esp/EFI/Microsoft/Boot/.
+
+__Note:__ If dual-booting with Windows, backup the original bootmgfw.efi first as replacing it may cause problems with Windows updates. As before, copy HashTool.efi and loader.efi to esp/EFI/Microsoft/Boot/.
 
 When the system starts with Secure Boot enabled, follow the steps above to enroll loader.efi and /vmlinuz-linux (or whichever kernel image is being used).
 
