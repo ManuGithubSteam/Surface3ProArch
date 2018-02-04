@@ -140,16 +140,18 @@ This entry should be added to the list as the first to boot; check with the efib
 #### Fallback
 If there are problems booting the custom NVRAM entry, copy HashTool.efi and loader.efi to the default loader location booted automatically by UEFI systems:
 
-`cp /usr/share/preloader-signed/HashTool.efi esp/EFI/Boot`
-`cp esp/EFI/systemd/systemd-bootx64.efi esp/EFI/Boot/loader.efi`
+`cp /usr/share/preloader-signed/HashTool.efi /boot/efi/EFI/Boot`
+
+`cp esp/EFI/systemd/systemd-bootx64.efi /boot/efi/EFI/Boot/loader.efi`
 
 Copy over PreLoader.efi and rename it:
 
-`cp /usr/share/preloader-signed/PreLoader.efi esp/EFI/Boot/bootx64.efi`
+`cp /usr/share/preloader-signed/PreLoader.efi /boot/efi/EFI/Boot/bootx64.efi`
 
 For particularly intransigent UEFI implementations, copy PreLoader.efi to the default loader location used by Windows systems:
 
 `mkdir -p esp/EFI/Microsoft/Boot`
+
 `cp /usr/share/preloader-signed/PreLoader.efi esp/EFI/Microsoft/Boot/bootmgfw.efi`
 
 __Note:__ If dual-booting with Windows, backup the original bootmgfw.efi first as replacing it may cause problems with Windows updates. As before, copy HashTool.efi and loader.efi to esp/EFI/Microsoft/Boot/.
