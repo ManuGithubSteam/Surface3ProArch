@@ -26,7 +26,7 @@ Specs can be looked up with the ean: EAN / ISBN-13:	0885370757934
 1. Install all Firmware updates you can find with WIDNOWS.
 2. After that remove recovery partitions, just leave the EFI Partition. (Has around 300mb at the beginning of the disak empty)
 3. Download recent Anthergos Linux -> https://antergos.com/
-4. Disable Secureboot
+4. __Disable Secureboot__ (we will reenable it later)
 5. Boot Arch and install with EFI Partition intact (with kernel 4.14 all major stuff is supported). 
   5. A) Use BTRFS for better SSD support.
   5. B) If WIFI fails during install (it should be stable after the fix!) make a USB bridge with your phone.
@@ -133,8 +133,6 @@ Finally, create a new NVRAM entry to boot PreLoader.efi:
 
 `efibootmgr --disk /dev/sda --part 1 --create --label "PreLoader" --loader /EFI/systemd/PreLoader.efi`
 
-Replace X with the drive letter and replace Y with the partition number of the EFI System Partition.
-
 This entry should be added to the list as the first to boot; check with the efibootmgr command and adjust the boot-order if necessary.
 
 #### Fallback
@@ -154,9 +152,30 @@ For particularly intransigent UEFI implementations, copy PreLoader.efi to the de
 
 `cp /usr/share/preloader-signed/PreLoader.efi /boot/efi/EFI/Microsoft/Boot/bootmgfw.efi`
 
-__Note:__ If dual-booting with Windows, backup the original bootmgfw.efi first as replacing it may cause problems with Windows updates. As before, copy HashTool.efi and loader.efi to esp/EFI/Microsoft/Boot/.
+When the system starts with Secure Boot enabled, follow the steps above to enroll loader.efi.
 
-When the system starts with Secure Boot enabled, follow the steps above to enroll loader.efi and /vmlinuz-linux (or whichever kernel image is being used).
+### Configure Secureboot 
+
+At this stage Secureboot will load the systemd loader Binary wich will give us a selection menu to choose from what to boot.
+
+You can direcly boot a kernel (secure method, you need to hash the kernel!) or boot into normal Grub2.
+
+To chainload Grub2 create:
+
+`/boot/efi/loader.conf` with
+
+`default arch` and safe the file.
+
+Then create `/boot/efi/entries/arch.conf` with this in it:
+
+`title Arch Linux`
+`efi EFI/antergos_grub/grubx64.efi`
+
+Then update the boot entries:
+
+`bootctl update`
+
+When you reboot you will have to hash the grubx64.efi binary with the hash tool. After that you can boot grub with secureboot active.
 
 ## Optimizations
 
