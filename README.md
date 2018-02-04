@@ -5,7 +5,7 @@ I wanted a convertible with good Linux support. After some toying with the T100T
 
 So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gnome desktop for best touch support.
 
-Specs can be looked up with the ean: EAN / ISBN-13:	0885370757934.
+Specs can be looked up with the ean: EAN / ISBN-13:	0885370757934
 
 ## Short summery:
 
@@ -24,11 +24,14 @@ Specs can be looked up with the ean: EAN / ISBN-13:	0885370757934.
 ## Basic Installation
 
 1. Install all Firmware updates you can find with WIDNOWS.
-2. After that remove recovery Partitions, just leave the EFI Partition. (Has ca 300mb at the beginning of the disak empty)
-3. Download recent Anthergos Linux
+2. After that remove recovery partitions, just leave the EFI Partition. (Has around 300mb at the beginning of the disak empty)
+3. Download recent Anthergos Linux -> https://antergos.com/
 4. Disable Secureboot
-5. Boot Arch and install with EFI Partition intact (with kernel 4.14 all major stuff is supported). Use BTRFS.
-5. a) If WIFI fails during install (it should be stable afterwards USE 5Ghz WIFI!) make a USB bridge with your phone.
+5. Boot Arch and install with EFI Partition intact (with kernel 4.14 all major stuff is supported). 
+  5. A) Use BTRFS for better SSD support.
+  5. B) If WIFI fails during install (it should be stable after the fix!) make a USB bridge with your phone.
+  5. C) Make sure AUR is activated
+6. Reboot into installed system
 
 ## Install Surface kernel and power tools
 
@@ -42,7 +45,8 @@ Specs can be looked up with the ean: EAN / ISBN-13:	0885370757934.
 `systemctl mask tmp.mount`
 reboot.
 
-### Download the snapshot of laptop-mode-tools
+### Download the snapshot of laptop-mode-tools 
+It is flagged outdated for some reason but it is still developed. :-)
 
 -> https://aur.archlinux.org/packages/laptop-mode-tools/
 
@@ -53,11 +57,13 @@ with `makepkg` then install the pakage `makepkg --install`
 
 `yaourt -S linux-surfacepro3-git`
 
+This downloades the new 4.15 kernel with surface 3 pro patches. You can still make adjustments to the config.
+
 Make a grub.cfg
 
 `grub-mkconfig -o /boot/grub/grub.cfg`
 
-Change the kernel line to the surface ones
+Change the kernel line to the surface kernel ones
 
 `initramfs-linux.img` to `initramfs-linux-surfacepro3-git.img`
 
@@ -83,10 +89,23 @@ Put the following in `/etc/NetworkManager/NetworkManager.conf` to make it perman
 
 ## Switch suspend for hibernate
 
-sudo rm -Rf /etc/systemd/system/suspend.target && sudo ln -sf /usr/lib/systemd/system/hibernate.target /etc/systemd/system/suspend.target
+Suspend is broken on newer systems so we switch it for hibernate.
 
-sudo rm -Rf /etc/systemd/system/systemd-suspend.service && ln -sf /usr/lib/systemd/system/systemd-hibernate.service /etc/systemd/system/systemd-suspend.service
+`sudo rm -Rf /etc/systemd/system/suspend.target && sudo ln -sf /usr/lib/systemd/system/hibernate.target /etc/systemd/system/suspend.target`
 
+`sudo rm -Rf /etc/systemd/system/systemd-suspend.service && ln -sf /usr/lib/systemd/system/systemd-hibernate.service /etc/systemd/system/systemd-suspend.service`
+
+## Install GDM
+
+GDM has better touch support than lightdm greeters, so you can boot the in Tablet mode and still log in.
+
+`pacman -Syu gdm`
+
+To start GDM at boot time enable gdm.service
+
+`systemctl enable gdm.service`
+
+Gnome will start in a wayland session first. Make sure you use Xorg for best experience.
 
 ## Optimizations
 
