@@ -43,6 +43,7 @@ Specs can be looked up with the ean: EAN / ISBN-13:	0885370757934
 (uses too much valuable ram and can NOT build kernel in it!)
 
 `systemctl mask tmp.mount`
+
 reboot.
 
 ### Download the snapshot of laptop-mode-tools 
@@ -123,12 +124,15 @@ Install the signed gummiboot loader.
 Then copy it to the right places.
 
 `cp /usr/share/preloader-signed/{PreLoader,HashTool}.efi /boot/efi/EFI/systemd`
+
 Now copy over the boot loader binary and rename it to loader.efi; for systemd-boot use:
 
-`cp esp/EFI/systemd/systemd-bootx64.efi /boot/efi/EFI/systemd/loader.efi`
+`cp /boot/efi/EFI/systemd/systemd-bootx64.efi /boot/efi/EFI/systemd/loader.efi`
+
 Finally, create a new NVRAM entry to boot PreLoader.efi:
 
 `efibootmgr --disk /dev/sda --part 1 --create --label "PreLoader" --loader /EFI/systemd/PreLoader.efi`
+
 Replace X with the drive letter and replace Y with the partition number of the EFI System Partition.
 
 This entry should be added to the list as the first to boot; check with the efibootmgr command and adjust the boot-order if necessary.
