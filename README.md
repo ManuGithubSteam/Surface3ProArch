@@ -184,9 +184,9 @@ Then update the boot entries:
 
 When you reboot you will have to activate secureboot hash the grubx64.efi binary with the hash tool. After that you can boot grub with secureboot active.
 
-# Stylus
+## Stylus
 
-Install the x86-input-wacom, remove grabbing from the evdev driver (comment the MatchIsTablet section in /usr/share/X11/xorg.conf.d/10-evdev.conf) and add the pen to the N-Trig wacom rule (add |1B96:1B05 Penin the MatchProduct line of N-Trig in /usr/share/X11/xorg.conf.d/50-wacom.conf).
+Install the x86-input-wacom, add the pen to the N-Trig wacom rule (add |1B96:1B05 Pen in the MatchProduct line of N-Trig in /usr/share/X11/xorg.conf.d/50-wacom.conf).
 
 Now xinput have 3 devices instead of one :
 
