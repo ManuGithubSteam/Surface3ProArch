@@ -28,9 +28,9 @@ Specs can be looked up with the ean: EAN / ISBN-13:	0885370757934
 3. Download recent Anthergos Linux -> https://antergos.com/
 4. __Disable Secureboot__ (we will reenable it later)
 5. Boot Arch and install with EFI Partition intact (with kernel 4.14 all major stuff is supported). 
-  5. A) Use BTRFS for better SSD support.
-  5. B) If WIFI fails during install (it should be stable after the fix!) make a USB bridge with your phone.
-  5. C) Make sure AUR is activated
+  .. A) Use BTRFS for better SSD support.
+  .. B) If WIFI fails during install (it should be stable after the fix!) make a USB bridge with your phone.
+  .. C) Make sure AUR is activated
 6. Reboot into installed system
 
 ## Install Surface kernel and power tools
@@ -97,6 +97,19 @@ Suspend is broken on newer systems so we switch it for hibernate.
 `sudo rm -Rf /etc/systemd/system/suspend.target && sudo ln -sf /usr/lib/systemd/system/hibernate.target /etc/systemd/system/suspend.target`
 
 `sudo rm -Rf /etc/systemd/system/systemd-suspend.service && ln -sf /usr/lib/systemd/system/systemd-hibernate.service /etc/systemd/system/systemd-suspend.service`
+
+For hibernation to work you have to change some stuff too:
+
+The following script goes into /lib/systemd/system-sleep/mwifiex, and has to be chown root mwifiex; chmod 755 mwifiex in order to run correctly.
+
+#!/bin/sh
+set -e
+
+if [ "$2" = "hibernate" ]; then
+    case "$1" in
+        pre) modprobe -r mwifiex_pcie mwifiex ;;
+        post) modprobe mwifiex_pcie ;;
+    esac
 
 ## Install GDM
 
