@@ -119,7 +119,7 @@ Make sure /boot/efi/ is mounted (EFI Folder inside)
 
 Install the signed gummiboot loader.
 
-`yaourt -S preloader-signed`
+`yaourt -S preloader-signed systemd-boot-pacman-hook`
 
 Then copy it to the right places.
 
@@ -156,9 +156,9 @@ When the system starts with Secure Boot enabled, follow the steps above to enrol
 
 ### Configure Secureboot 
 
-At this stage Secureboot will load the systemd loader Binary wich will give us a selection menu to choose from what to boot.
+At this stage Secureboot will load the systemd loader binary wich will give us a selection menu to choose from what to boot.
 
-You can direcly boot a kernel (secure method, you need to hash the kernel!) or boot into normal Grub2.
+You can direcly boot a kernel (secure method, but you need to hash the kernel!) or boot into normal Grub2.
 
 To chainload Grub2 create:
 
@@ -169,13 +169,14 @@ To chainload Grub2 create:
 Then create `/boot/efi/entries/arch.conf` with this in it:
 
 `title Arch Linux`
+
 `efi EFI/antergos_grub/grubx64.efi`
 
 Then update the boot entries:
 
 `bootctl update`
 
-When you reboot you will have to hash the grubx64.efi binary with the hash tool. After that you can boot grub with secureboot active.
+When you reboot you will have to activate secureboot hash the grubx64.efi binary with the hash tool. After that you can boot grub with secureboot active.
 
 ## Optimizations
 
