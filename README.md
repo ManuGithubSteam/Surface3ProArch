@@ -73,7 +73,9 @@ After that reboot the System.
 
 ## Fix Wifi
 
-Put the following in `/etc/NetworkManager/NetworkManager.conf` to make it permanent. This will disable both power management and MAC randomization (Thanks:https://www.reddit.com/r/SurfaceLinux/comments/75sl8t/potential_fix_for_wifi_disconnects_on_sp3/doofqgu/ ):
+Make sure you use 5 Ghz Wifi as the USB 3.0 can interfere with 2.4Ghz stability!
+
+Put the following in `/etc/NetworkManager/NetworkManager.conf` to make it permanent. This will disable both power management and MAC randomization:
 
 `[connection]`
 
@@ -106,6 +108,46 @@ To start GDM at boot time enable gdm.service
 `systemctl enable gdm.service`
 
 Gnome will start in a wayland session first. Make sure you use Xorg for best experience.
+
+## Reenable Secure Boot
+
+### Install systemd Boot
+Make sure /boot/efi/ is mounted (EFI Folder inside)
+
+`bootctl --path=/boot/efi install`
+
+Install the signed gummiboot loader.
+
+`yaourt -S preloader-signed`
+
+Then copy it to the right places.
+
+`cp /usr/share/preloader-signed/{PreLoader,HashTool}.efi esp/EFI/systemd`
+Now copy over the boot loader binary and rename it to loader.efi; for systemd-boot use:
+
+`cp esp/EFI/systemd/systemd-bootx64.efi esp/EFI/systemd/loader.efi`
+Finally, create a new NVRAM entry to boot PreLoader.efi:
+
+`efibootmgr --disk /dev/sdX --part Y --create --label "PreLoader" --loader /EFI/systemd/PreLoader.efi`
+Replace X with the drive letter and replace Y with the partition number of the EFI System Partition.
+
+This entry should be added to the list as the first to boot; check with the efibootmgr command and adjust the boot-order if necessary.
+
+#### Fallback
+If there are problems booting the custom NVRAM entry, copy HashTool.efi and loader.efi to the default loader location booted automatically by UEFI systems:
+
+`cp /usr/share/preloader-signed/HashTool.efi esp/EFI/Boot`
+`cp esp/EFI/systemd/systemd-bootx64.efi esp/EFI/Boot/loader.efi`
+Copy over PreLoader.efi and rename it:
+
+`cp /usr/share/preloader-signed/PreLoader.efi esp/EFI/Boot/bootx64.efi`
+For particularly intransigent UEFI implementations, copy PreLoader.efi to the default loader location used by Windows systems:
+
+`mkdir -p esp/EFI/Microsoft/Boot`
+`cp /usr/share/preloader-signed/PreLoader.efi esp/EFI/Microsoft/Boot/bootmgfw.efi`
+Note: If dual-booting with Windows, backup the original bootmgfw.efi first as replacing it may cause problems with Windows updates. As before, copy HashTool.efi and loader.efi to esp/EFI/Microsoft/Boot/.
+
+When the system starts with Secure Boot enabled, follow the steps above to enroll loader.efi and /vmlinuz-linux (or whichever kernel image is being used).
 
 ## Optimizations
 
