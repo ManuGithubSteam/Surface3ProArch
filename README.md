@@ -249,11 +249,11 @@ To get longer battery life we need to start powertop as root. My battery went up
 
 ### Sudo rules
 
-Edit the sudoers file with this:
+Edit the sudoers file with this (very end of the file!):
 
-`%users     ALL = NOPASSWD: /usr/bin/powertop, /usr/bin/btmon`
+user ALL=NOPASSWD: /usr/bin/powertop, /bin/btmon
 
-Now powertop should function without root password required.
+Now powertop and btmon should function without root password required.
 
 ## ScreenDPI
 
@@ -273,6 +273,8 @@ and create an autostart script:
     sleep 1
     xrandr --output eDP-1 --scale 1.25x1.25 --panning 2160x1440 &
     xrandr --dpi 192 # same as Gnome
+    gsettings set org.gnome.desktop.background show-desktop-icons true
+    gsettings set org.gnome.desktop.background show-desktop-icons false
 
 ## Optimizations
 
