@@ -204,16 +204,9 @@ Install the x86-input-wacom package and make these files:
       Option "TPCButton" "on"  
     EndSection  
 
-
-Now xinput have 3 devices instead of one :
-
-NTRG0001:01 1B96:1B05 Pen stylus  
-NTRG0001:01 1B96:1B05 Pen eraser  
-NTRG0001:01 1B96:1B05 Pen pad  
-
 Xournal with "Eraser Tip", "Pressure sensitivity", "Touchscreen as Hand Tool" and "Pen disables Touch" works
 
-## Bluethooth
+### Bluethooth 
 
 Modify `/lib/systemd/system/bluetooth.service`, changing the Exec line to this:
 
@@ -223,7 +216,7 @@ Adding the "experimental" line will let things like Bose products work with blue
 
 ## Optimizations
 
-While the kernel in compiling we have some time to do some system optimizations :-)
+Some time for some optimazations :-)
 
 ### Change system Language to English and leave the Input to German keayboard.
 
