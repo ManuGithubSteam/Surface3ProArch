@@ -74,7 +74,7 @@ Change the kernel line to the surface kernel ones
 
 After that reboot the System.
 
-## Fix Wifi
+## Fix Wifi disconnect
 
 Make sure you use 5 Ghz Wifi as the USB 3.0 can interfere with 2.4Ghz stability!
 
@@ -108,11 +108,13 @@ Edit `/etc/systemd/logind.conf `
 
 Change that line to: 
 
-`HandleLidSwitch=poweroff`
+`HandleLidSwitch=lock`
 
-`HandlePowerKey=lock`
+`HandlePowerKey=poweroff`
 
-So you can lock the Tablet with the power key and shit it down when you close the type cover.
+So you can lock the Tablet with the Type Cover and power it down when you Press the Power button.
+
+__NOTE:__ There is a Gnome Setting in "Power" Menu that needs to be changed as well!
 
 ## Install GDM
 
@@ -224,7 +226,7 @@ Modify `/lib/systemd/system/bluetooth.service`, changing the Exec line to this:
 
 `ExecStart=/usr/libexec/bluetooth/bluetoothd --experimental`
 
-Adding the "experimental" line will let things like Bose products work with bluetooth.
+Adding the "experimental" line will let things like Bose products work with bluetooth, also it will rediscover the pen after a reboot, so you dont have to pait it again.
 
 ## Optimizations
 
