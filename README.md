@@ -245,6 +245,38 @@ Just install iio-sensor-proxy-git from AUR to get the rotation and the backlight
 To match the screen rotation with the sytlus execute the `rotate_stylus.sh` script from here. 
 Put it in Gnome Autosttart if you want.
 
+## Battery life
+
+To get longer battery life we need to start powertop as root. My battery went up from 3hours to 7 hours :-)
+
+### systemd rc-local
+To bring rc.local back create
+
+`/etc/systemd/system/rc-local.service` with:
+
+    [Unit]
+    Description=/etc/rc.local compatibility
+
+    [Service]
+    Type=oneshot
+    ExecStart=/etc/rc.local
+    # disable timeout logic
+    TimeoutSec=0
+    #StandardOutput=tty
+    RemainAfterExit=yes
+    SysVStartPriority=99
+
+    [Install]
+    WantedBy=multi-user.target
+
+Then create `/etc/rc.local` with:
+
+    powertop --auto-tune
+    exit 0
+
+and enable the sytemd service:
+
+`systemctl enable rc-local.service`
 
 ## Optimizations
 
