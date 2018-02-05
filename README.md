@@ -80,16 +80,12 @@ Make sure you use 5 Ghz Wifi as the USB 3.0 can interfere with 2.4Ghz stability!
 
 Put the following in `/etc/NetworkManager/NetworkManager.conf` to make it permanent. This will disable both power management and MAC randomization:
 
-`[connection]`
-
-`wifi.powersave=2  # 2=disable`
-
-`wifi.mac-address-randomization=1 # 1=disable`
-
+`[connection]`  
+`wifi.powersave=2  # 2=disable`  
+`wifi.mac-address-randomization=1 # 1=disable`  
 `wifi.cloned-mac-address=permanent`
 
-`[device]`
-
+`[device]`  
 `wifi.scan-rand-mac-address=no`
 
 ## Suspend and Hibernate
@@ -192,7 +188,7 @@ Install the x86-input-wacom package and make these files:
 `/etc/X11/xorg.conf.d/50-wacom.conf:`
 
 `Section "InputClass"`  
-`    Identifier      "Surface Wacom"`  
+    `Identifier      "Surface Wacom"`  
 `    MatchProduct    "1B96:1B05 Pen"`  
 `    MatchDevicePath "/dev/input/event*"`  
 `    Driver          "wacom"`  
