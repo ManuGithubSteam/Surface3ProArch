@@ -5,9 +5,14 @@ I wanted a convertible with good Linux support. After some toying with the T100T
 
 So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gnome desktop for best touch support.
 
-Specs can be looked up with the ean: EAN / ISBN-13:	0885370757934
 
-## Short summery:
+
+# Contents
+
+* [Harware summery](## Harware summery)
+
+
+## Harware summery:
 
 - 128GB SSD
 
@@ -20,6 +25,8 @@ Specs can be looked up with the ean: EAN / ISBN-13:	0885370757934
 - USBB 3.0
 
 - Mini HDMI
+
+Specs can be looked up with the ean: EAN / ISBN-13: 0885370757934
 
 ## Basic Installation
 
@@ -102,7 +109,7 @@ After all it boots fast with SSD and with Hibernate there are different issues w
 
 Also edit /default/grub and remove the resume line in the DEFAULTS section.
 
-## Type Cover Lid Close behaviour
+### Type Cover Lid Close behaviour
 
 Edit `/etc/systemd/logind.conf `
 
