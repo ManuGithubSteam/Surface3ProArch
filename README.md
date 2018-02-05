@@ -9,10 +9,10 @@ So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gn
 
 # Contents
 
-* [Harware summery](## Harware summery)
+* [Harware][Hs]
 
 
-## Harware summery:
+## [Hs]:
 
 - 128GB SSD
 
