@@ -228,13 +228,22 @@ Adding the "experimental" line will let things like Bose products work with blue
 
 __NOTE:__ Powertop will play with BT LE mode and the Pen will not be discoverable anymore. So make sure you exclude BT Stuff from Powertop
 
+## Palmreject
+
+MyPaint has an option to turn the touchscreen off or use it just with features you want.
+
+However if you put your palm onto someting that is not canvas a touch is triggerd. So be careful how you daw or use the palmreject script from here. 
+
+This script was modified to work with the pens that come with the SP3.
+
 ## Backlight and Rotation
 
 Just install iio-sensor-proxy-git from AUR to get the rotation and the backlight light sensor up and running.
 
 `yaourt -S iio-sensor-proxy-git`
 
-To match the screen rotation with the sytlus do:
+To match the screen rotation with the sytlus execute the `rotate_stylus.sh` script from here. 
+Put it in Gnome Autosttart if you want.
 
 
 ## Optimizations
@@ -262,7 +271,7 @@ Just deactivate all the "Search" Options in the Gnome Settings.
 
 Install these shell extensions:
 
--> https://extensions.gnome.org/extension/993/slide-for-keyboard/
+-> https://extensions.gnome.org/extension/993/slide-for-keyboard/  
 -> https://extensions.gnome.org/extension/1024/caribou-resize-workspace/
 
 Then do this in a terminal:
