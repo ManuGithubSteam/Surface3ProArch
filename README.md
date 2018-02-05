@@ -226,7 +226,7 @@ Modify `/lib/systemd/system/bluetooth.service`, changing the Exec line to this:
 
 Adding the "experimental" line will let things like Bose products work with bluetooth, also it will rediscover the pen after a reboot, so you dont have to pait it again.
 
-__NOTE:__ Powertop will play with BT LE mode and the Pen will not be discoverable anymore. So make sure you exclude BT Stuff from Powertop
+__NOTE:__ Powertop will play with BT LE mode and the Pen will not be discoverable anymore. So if you want to use it you have to rediscover the pen on every reboot.
 
 ### Palmreject
 
