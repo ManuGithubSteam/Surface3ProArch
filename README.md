@@ -102,6 +102,18 @@ After all it boots fast with SSD and with Hibernate there are different issues w
 
 Also edit /default/grub and remove the resume line in the DEFAULTS section.
 
+## Type Cover Lid Close behaviour
+
+Edit `/etc/systemd/logind.conf `
+
+Change that line to: 
+
+`HandleLidSwitch=poweroff`
+
+`HandlePowerKey=lock`
+
+So you can lock the Tablet with the power key and shit it down when you close the type cover.
+
 ## Install GDM
 
 GDM has better touch support than lightdm greeters, so you can boot the in Tablet mode and still log in.
