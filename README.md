@@ -5,14 +5,7 @@ I wanted a convertible with good Linux support. After some toying with the T100T
 
 So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gnome desktop for best touch support.
 
-
-
-# Contents
-
-* [Harware][Hs]
-
-
-## [Hs]:
+## Hardware Info
 
 - 128GB SSD
 
