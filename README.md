@@ -228,7 +228,7 @@ Adding the "experimental" line will let things like Bose products work with blue
 
 __NOTE:__ Powertop will play with BT LE mode and the Pen will not be discoverable anymore. So make sure you exclude BT Stuff from Powertop
 
-## Palmreject
+### Palmreject
 
 MyPaint has an option to turn the touchscreen off or use it just with features you want.
 
