@@ -187,9 +187,9 @@ Install the x86-input-wacom package and make these files:
 
 `/etc/X11/xorg.conf.d/50-wacom.conf:`
 
-`Section "InputClass"`  
-    `Identifier      "Surface Wacom"`  
-`    MatchProduct    "1B96:1B05 Pen"`  
+    Section "InputClass"`  
+    Identifier      "Surface Wacom"`  
+    MatchProduct    "1B96:1B05 Pen"`  
 `    MatchDevicePath "/dev/input/event*"`  
 `    Driver          "wacom"`  
 `    Option          "RandRRotation" "on"`  
