@@ -234,6 +234,14 @@ However if you put your palm onto someting that is not canvas a touch is trigger
 
 This script was modified to work with the pens that come with the SP3.
 
+### Top Stylus Button
+
+Use the `pen_click.sh` script from here to make this work. You need a SUDO rule for btmon (see sudo rules)
+
+Start the sript like this:
+
+`sudo btmon | ./pen_click.sh &`
+
 ## Backlight and Rotation
 
 Just install iio-sensor-proxy-git from AUR to get the rotation and the backlight light sensor up and running.
@@ -245,15 +253,19 @@ Put it in Gnome Autosttart if you want.
 
 ## Battery life
 
-To get longer battery life we need to start powertop as root. My battery went up from 3hours to 7 hours :-)
+To get longer battery life we need to start powertop as root. My battery went up from 3 hours to 7 hours :-)
 
 ### Sudo rules
 
 Edit the sudoers file with this (very end of the file!):
 
-user ALL=NOPASSWD: /usr/bin/powertop, /bin/btmon
+`user ALL=NOPASSWD: /usr/bin/powertop, /bin/btmon`
 
 Now powertop and btmon should function without root password required.
+
+Add this to autostart:
+
+`sudo powertop --auto-tune &`
 
 ## ScreenDPI
 
@@ -268,14 +280,16 @@ Make a monitor config:
 
 and create an autostart script:
 
+`~/.local/config/autostart/hidpi`
+
     #!/bin/bash
+    xrandr --dpi 192 # same as Gnome
     xrandr --output eDP-1 --scale 1.25x1.25 &
     sleep 1
     xrandr --output eDP-1 --scale 1.25x1.25 --panning 2160x1440 &
-    xrandr --dpi 192 # same as Gnome
     gsettings set org.gnome.desktop.background show-desktop-icons true
     gsettings set org.gnome.desktop.background show-desktop-icons false
-
+    
 ## Optimizations
 
 Some time for some optimazations :-)
