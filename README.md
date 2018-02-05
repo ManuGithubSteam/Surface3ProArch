@@ -56,7 +56,7 @@ with `makepkg` then install the pakage `makepkg --install`
 
 ### Build and install surface Kernel
 
-__NOTE: The 4.15 kernel in the arch repso seems to support most stuff right now, maybe not needed anymore...__
+__NOTE: The 4.15 kernel in the arch repo seems to support most stuff right now, maybe not needed anymore...__
 
 `yaourt -S linux-surfacepro3-git`
 
@@ -226,8 +226,6 @@ Modify `/lib/systemd/system/bluetooth.service`, changing the Exec line to this:
 
 Adding the "experimental" line will let things like Bose products work with bluetooth, also it will rediscover the pen after a reboot, so you dont have to pait it again.
 
-__NOTE:__ Powertop will play with BT LE mode and the Pen will not be discoverable anymore. So if you want to use it you have to rediscover the pen on every reboot.
-
 ### Palmreject
 
 MyPaint has an option to turn the touchscreen off or use it just with features you want.
@@ -249,29 +247,32 @@ Put it in Gnome Autosttart if you want.
 
 To get longer battery life we need to start powertop as root. My battery went up from 3hours to 7 hours :-)
 
-### systemd rc-local
-To bring rc.local back create
+### Sudo rules
 
-`/etc/systemd/system/powertop.service` with:
+Edit the sudoers file with this:
 
-    [Unit]
-    Description=start powertop
+`%users     ALL = NOPASSWD: /usr/bin/powertop`
 
-    [Service]
-    Type=oneshot
-    ExecStart=/usr/bin/powertop --auto-tune
-    # disable timeout logic
-    TimeoutSec=0
-    StandardOutput=tty
-    RemainAfterExit=yes
-    SysVStartPriority=99
+Now poertop should function without root password requred.
 
-    [Install]
-    WantedBy=multi-user.target
+## ScreenDPI
 
-and enable the sytemd service:
+Make a monitor config:
 
-`systemctl enable rc-local.service`
+`nano /etc/X11/xorg.conf.d/90-monitor.conf`
+    
+    Section "Monitor"
+      Identifier             "<default monitor>"
+      DisplaySize            253 169 # In millimeters
+    EndSection
+
+and create an autostart script:
+
+    #!/bin/bash
+    #xrandr --output eDP1 --scale 1.25x1.25 &
+    sleep 1
+    xrandr --output eDP1 --scale 1.25x1.25 --panning 2160x1440 &
+    xrandr --dpi 144
 
 ## Optimizations
 
