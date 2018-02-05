@@ -56,6 +56,8 @@ with `makepkg` then install the pakage `makepkg --install`
 
 ### Build and install surface Kernel
 
+__NOTE: The 4.15 kernel in the arch repso seems to support most stuff right now, maybe not needed anymore...__
+
 `yaourt -S linux-surfacepro3-git`
 
 This downloades the new 4.15 kernel with surface 3 pro patches. You can still make adjustments to the config.
@@ -186,7 +188,27 @@ When you reboot you will have to activate secureboot hash the grubx64.efi binary
 
 ## Stylus
 
-Install the x86-input-wacom, add the pen to the N-Trig wacom rule (add |1B96:1B05 Pen in the MatchProduct line of N-Trig in /usr/share/X11/xorg.conf.d/50-wacom.conf).
+Install the x86-input-wacom package and make these files:
+
+/etc/X11/xorg.conf.d/50-wacom.conf:
+
+Section "InputClass"
+    Identifier      "Surface Wacom"
+    MatchProduct    "1B96:1B05 Pen"
+    MatchDevicePath "/dev/input/event*"
+    Driver          "wacom"
+    Option          "RandRRotation" "on"
+    Option          "Button2" "3"
+    Option          "Button3" "2"
+EndSection
+
+/etc/X11/xorg.conf.d/52-wacom-options.conf:
+
+Section "InputClass"
+    Identifier "NTRG0001:01 1B96:1B05 Pen stylus"
+    Option "TPCButton" "on"
+EndSection
+
 
 Now xinput have 3 devices instead of one :
 
