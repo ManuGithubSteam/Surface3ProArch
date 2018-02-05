@@ -101,7 +101,7 @@ After all it boots fast with SSD and with Hibernate there are different issues w
 
 ### Deactivate Hibernate and Suspend
 
-`systemctl mask hibernate.target`
+`systemctl mask hibernate.target`  
 `systemctl mask suspend.target`
 
 Also edit /default/grub and remove the resume line in the DEFAULTS section.
@@ -176,8 +176,7 @@ To chainload Grub2 create:
 
 Then create `/boot/efi/entries/arch.conf` with this in it:
 
-`title Arch Linux`
-
+`title Arch Linux`  
 `efi EFI/antergos_grub/grubx64.efi`
 
 Then update the boot entries:
@@ -192,22 +191,22 @@ Install the x86-input-wacom package and make these files:
 
 `/etc/X11/xorg.conf.d/50-wacom.conf:`
 
-`Section "InputClass"`
-`    Identifier      "Surface Wacom"`
-`    MatchProduct    "1B96:1B05 Pen"`
-`    MatchDevicePath "/dev/input/event*"`
-`    Driver          "wacom"`
-`    Option          "RandRRotation" "on"`
-`    Option          "Button2" "3"`
-`    Option          "Button3" "2"`
+`Section "InputClass"`  
+`    Identifier      "Surface Wacom"`  
+`    MatchProduct    "1B96:1B05 Pen"`  
+`    MatchDevicePath "/dev/input/event*"`  
+`    Driver          "wacom"`  
+`    Option          "RandRRotation" "on"`  
+`    Option          "Button2" "3"`  
+`    Option          "Button3" "2"`  
 `EndSection`
 
 `/etc/X11/xorg.conf.d/52-wacom-options.conf:`
 
-`Section "InputClass"`
-`    Identifier "NTRG0001:01 1B96:1B05 Pen stylus"`
-`    Option "TPCButton" "on"`
-`EndSection`
+`Section "InputClass"`  
+`    Identifier "NTRG0001:01 1B96:1B05 Pen stylus"`  
+`    Option "TPCButton" "on"`  
+`EndSection`  
 
 
 Now xinput have 3 devices instead of one :
