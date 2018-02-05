@@ -310,7 +310,9 @@ Then do this in a terminal:
 
 `gsettings set org.gnome.shell.keyboard keyboard-type tablet`
 
+### Turn off keyboard lights
 
+If you pess F2 on the keyboard you can turn of/dimm the light of the keyboard. Make sure Fn is NOT pressed.
 
 
 
