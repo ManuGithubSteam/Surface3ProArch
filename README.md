@@ -228,6 +228,15 @@ Adding the "experimental" line will let things like Bose products work with blue
 
 __NOTE:__ Powertop will play with BT LE mode and the Pen will not be discoverable anymore. So make sure you exclude BT Stuff from Powertop
 
+## Backlight and Rotation
+
+Just install iio-sensor-proxy-git from AUR to get the rotation and the backlight light sensor up and running.
+
+`yaourt -S iio-sensor-proxy-git`
+
+To match the screen rotation with the sytlus do:
+
+
 ## Optimizations
 
 Some time for some optimazations :-)
