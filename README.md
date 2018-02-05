@@ -80,13 +80,13 @@ Make sure you use 5 Ghz Wifi as the USB 3.0 can interfere with 2.4Ghz stability!
 
 Put the following in `/etc/NetworkManager/NetworkManager.conf` to make it permanent. This will disable both power management and MAC randomization:
 
-`[connection]`  
-`wifi.powersave=2  # 2=disable`  
-`wifi.mac-address-randomization=1 # 1=disable`  
-`wifi.cloned-mac-address=permanent`
+    [connection]  
+    wifi.powersave=2  # 2=disable  
+    wifi.mac-address-randomization=1 # 1=disable  
+    wifi.cloned-mac-address=permanent
 
-`[device]`  
-`wifi.scan-rand-mac-address=no`
+    [device]  
+    wifi.scan-rand-mac-address=no
 
 ## Suspend and Hibernate
 
@@ -172,8 +172,8 @@ To chainload Grub2 create:
 
 Then create `/boot/efi/entries/arch.conf` with this in it:
 
-`title Arch Linux`  
-`efi EFI/antergos_grub/grubx64.efi`
+    title Arch Linux  
+    efi EFI/antergos_grub/grubx64.efi
 
 Then update the boot entries:
 
@@ -187,29 +187,29 @@ Install the x86-input-wacom package and make these files:
 
 `/etc/X11/xorg.conf.d/50-wacom.conf:`
 
-    Section "InputClass"`  
-    Identifier      "Surface Wacom"`  
-    MatchProduct    "1B96:1B05 Pen"`  
-`    MatchDevicePath "/dev/input/event*"`  
-`    Driver          "wacom"`  
-`    Option          "RandRRotation" "on"`  
-`    Option          "Button2" "3"`  
-`    Option          "Button3" "2"`  
-`EndSection`
+    Section "InputClass"  
+      Identifier      "Surface Wacom"  
+      MatchProduct    "1B96:1B05 Pen"  
+      MatchDevicePath "/dev/input/event*"  
+      Driver          "wacom"`  
+      Option          "RandRRotation" "on"  
+      Option          "Button2" "3"  
+      Option          "Button3" "2"  
+    EndSection
 
 `/etc/X11/xorg.conf.d/52-wacom-options.conf:`
 
-`Section "InputClass"`  
-`    Identifier "NTRG0001:01 1B96:1B05 Pen stylus"`  
-`    Option "TPCButton" "on"`  
-`EndSection`  
+    Section "InputClass"  
+      Identifier "NTRG0001:01 1B96:1B05 Pen stylus"  
+      Option "TPCButton" "on"  
+    EndSection  
 
 
 Now xinput have 3 devices instead of one :
 
-NTRG0001:01 1B96:1B05 Pen stylus
-NTRG0001:01 1B96:1B05 Pen eraser
-NTRG0001:01 1B96:1B05 Pen pad
+NTRG0001:01 1B96:1B05 Pen stylus  
+NTRG0001:01 1B96:1B05 Pen eraser  
+NTRG0001:01 1B96:1B05 Pen pad  
 
 Xournal with "Eraser Tip", "Pressure sensitivity", "Touchscreen as Hand Tool" and "Pen disables Touch" works
 
