@@ -269,9 +269,9 @@ Make a monitor config:
 and create an autostart script:
 
     #!/bin/bash
-    #xrandr --output eDP1 --scale 1.25x1.25 &
+    xrandr --output eDP-1 --scale 1.25x1.25 &
     sleep 1
-    xrandr --output eDP1 --scale 1.25x1.25 --panning 2160x1440 &
+    xrandr --output eDP-1 --scale 1.25x1.25 --panning 2160x1440 &
     xrandr --dpi 192 # same as Gnome
 
 ## Optimizations
