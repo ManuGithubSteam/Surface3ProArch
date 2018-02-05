@@ -91,7 +91,7 @@ Put the following in `/etc/NetworkManager/NetworkManager.conf` to make it perman
 ## Suspend and Hibernate
 
 After some testing it seems that hibernate and secureboot do not work well togehter.
-For that reason i will not go into deatil about hibernation here. 
+For that reason i will not go into detail about hibernation here. 
 
 After all it boots fast with SSD and with Hibernate there are different issues with wifi and touchscreen not coming up again. 
 
@@ -218,8 +218,6 @@ Install the x86-input-wacom package and make these files:
       Option "TPCButton" "on"  
     EndSection  
 
-Xournal with "Eraser Tip", "Pressure sensitivity", "Touchscreen as Hand Tool" and "Pen disables Touch" works
-
 ### Bluethooth 
 
 Modify `/lib/systemd/system/bluetooth.service`, changing the Exec line to this:
@@ -251,9 +249,18 @@ Saves a bit of RAM.
 
 Just deactivate all the "Search" Options in the Gnome Settings.
 
-### Disable touchpad while typing text
+### Better virtual keyboard
 
-Put this in the Gnome Autostart:
+Install these shell extensions:
 
-`syndaemon -i 1 -d -t`
+-> https://extensions.gnome.org/extension/993/slide-for-keyboard/
+-> https://extensions.gnome.org/extension/1024/caribou-resize-workspace/
+
+Then do this in a terminal:
+
+`gsettings set org.gnome.shell.keyboard keyboard-type tablet`
+
+
+
+
 
