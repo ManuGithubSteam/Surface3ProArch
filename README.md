@@ -351,8 +351,8 @@ If you pess F2 on the keyboard you can turn of/dimm the light of the keyboard. M
 
 earlyoom checks the amount of available memory and (since version 0.5) free swap 10 times a second. If both are below 10%, it will kill the largest process. So you got a resonsive system, no matter what.
 
-`pacaur -S earlyoom`
-`sudo systemctl enable earlyoom`
+`pacaur -S earlyoom`  
+`sudo systemctl enable earlyoom`  
 `sudo systemctl start earlyoom`
 
 
