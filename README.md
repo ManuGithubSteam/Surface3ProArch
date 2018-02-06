@@ -224,7 +224,7 @@ Install the  `pacman -S xf86-input-wacom` package and make these files:
 
     Section "InputClass"  
       Identifier      "Surface Wacom"  
-      MatchProduct    "1B96:1B05 Pen"  
+      MatchProduct    "1B96:1B05"  
       MatchDevicePath "/dev/input/event*"  
       Driver          "wacom"`  
       Option          "RandRRotation" "on"  
