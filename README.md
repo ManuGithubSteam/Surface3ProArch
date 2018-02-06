@@ -12,7 +12,7 @@ So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gn
 * Make xjournal fullscreen and foreground
 * Intel Realtek Audio Powesave mode
 * Deactivate Gnome Virt Keyboard on single click
- * https://extensions.gnome.org/extension/936/widget-blocker/
+  * https://extensions.gnome.org/extension/936/widget-blocker/
  * https://extensions.gnome.org/extension/1088/overview-now/
  * https://extensions.gnome.org/extension/1326/block-caribou/
  * https://extensions.gnome.org/extension/1061/on-screen-keyboard-button/
