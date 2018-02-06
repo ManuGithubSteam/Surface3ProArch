@@ -13,9 +13,9 @@ So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gn
 * Intel Realtek Audio Powesave mode
 * Deactivate Gnome Virt Keyboard on single click
   * https://extensions.gnome.org/extension/936/widget-blocker/
- * https://extensions.gnome.org/extension/1088/overview-now/
- * https://extensions.gnome.org/extension/1326/block-caribou/
- * https://extensions.gnome.org/extension/1061/on-screen-keyboard-button/
+  * https://extensions.gnome.org/extension/1088/overview-now/
+  * https://extensions.gnome.org/extension/1326/block-caribou/
+  * https://extensions.gnome.org/extension/1061/on-screen-keyboard-button/
 * Make Udev Rule do something cool when Typecover conects
 * Look into Laptop Mode tools
 * Make Mypaint useable with the stylus
@@ -29,7 +29,7 @@ So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gn
 * Make Gnome save RAM
 * Make the Stylus semi-Autoconnect with a script
 * Better Gnome expirence (less child like desktop)
- * https://extensions.gnome.org/extension/898/mmod-panel/
+  * https://extensions.gnome.org/extension/898/mmod-panel/
 
 
 ## Hardware Info
