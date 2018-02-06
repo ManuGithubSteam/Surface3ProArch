@@ -5,6 +5,26 @@ I wanted a convertible with good Linux support. After some toying with the T100T
 
 So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gnome desktop for best touch support.
 
+# TODO:
+* Get the eraser of the pen to work (HELP NEEDED!!! :)
+* Powertop script - multiple runs, check if on battery
+* Figure out Gnome Autostart
+* Make xjournal fullscreen and foreground
+* Intel Realtek Audio Powesave mode
+* Deactivate Gnome Virt Keyboard on single click
+* Make Udev Rule do something cool when Typecover conects
+* Look into Laptop Mode tools
+* Make Mypaint useable with the stylus
+* Whats that powertop safe file ?
+* Optimise scripts for powersave (5 hours instad of 7 without the scripts)
+* Touchscreen Apps :-)
+* Grub2 keyboard hack, UEFI Keyboard?
+* TTY Console Fronts
+* More touch gestures (fusuma, libinput, ginn, touchegg??)
+* Look into Write APP SysLabs
+* 
+
+
 ## Hardware Info
 
 - 128GB SSD
@@ -37,7 +57,7 @@ Specs can be looked up with the ean: EAN / ISBN-13: 0885370757934
 
 ### Install some stuff:
 
-`pacman -Syu powertop laptop-detect yaourt pavucontrol`
+`pacman -Syu powertop laptop-detect pacaur pavucontrol`
 
 ### Deactivate tmpfs 
 (uses too much valuable ram and can NOT build kernel in it!)
@@ -58,7 +78,7 @@ with `makepkg` then install the pakage `makepkg --install`
 
 __NOTE: The 4.15 kernel in the arch repo seems to support most stuff right now, maybe not needed anymore...__
 
-`yaourt -S linux-surfacepro3-git`
+`pacaur -S linux-surfacepro3-git`
 
 This downloades the new 4.15 kernel with surface 3 pro patches. You can still make adjustments to the config.
 
@@ -137,7 +157,7 @@ Make sure /boot/efi/ is mounted (EFI Folder inside)
 
 Install the signed gummiboot loader.
 
-`yaourt -S preloader-signed systemd-boot-pacman-hook`
+`pacaur -S preloader-signed systemd-boot-pacman-hook`
 
 Then copy it to the right places.
 
@@ -197,7 +217,7 @@ When you reboot you will have to activate secureboot hash the grubx64.efi binary
 
 ## Stylus
 
-Install the x86-input-wacom package and make these files:
+Install the  `pacman -S xf86-input-wacom` package and make these files:
 
 `/etc/X11/xorg.conf.d/50-wacom.conf:`
 
@@ -246,7 +266,7 @@ Start the sript like this:
 
 Just install iio-sensor-proxy-git from AUR to get the rotation and the backlight light sensor up and running.
 
-`yaourt -S iio-sensor-proxy-git`
+`pacaur -S iio-sensor-proxy-git`
 
 To match the screen rotation with the sytlus execute the `rotate_stylus.sh` script from here. 
 Put it in Gnome Autosttart if you want.
@@ -326,5 +346,12 @@ Then do this in a terminal:
 
 If you pess F2 on the keyboard you can turn of/dimm the light of the keyboard. Make sure Fn is NOT pressed.
 
+### Install earlyoom
+
+earlyoom checks the amount of available memory and (since version 0.5) free swap 10 times a second. If both are below 10%, it will kill the largest process. So you got a resonsive system, no matter what.
+
+`pacaur -S earlyoom`
+`sudo systemctl enable earlyoom`
+`sudo systemctl start earlyoom`
 
 
