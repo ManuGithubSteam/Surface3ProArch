@@ -558,11 +558,11 @@ Unload, park, suspend tabs to reduce memory footprint of chrome.  Set the timer 
 
 Gnome lets run a lot of deamons who do use RAM. If you plan to use the surface as a second pc or not use evolution and social features at all. Consider to remove some of them for more RAM and a bit longer battery life:
 
-First, mkdir a new folder in /usr/lib/gnome-settings-daemon/:
+First, mkdir a new folder in /usr/lib/gnome-settings-daemon/:  
 `sudo mkdir /usr/lib/gnome-settings-daemon/backup/`
 
-Second, mv all files you dont need into backup/ folder:
-`sudo mv -v /usr/lib/gnome-settings-daemon/gsd-print* /usr/lib/gnome-settings-daemon/backup`
+Second, mv all files you dont need into backup/ folder:  
+`sudo mv -v /usr/lib/gnome-settings-daemon/gsd-print* /usr/lib/gnome-settings-daemon/backup`  
 `sudo mv -v /usr/lib/gnome-settings-daemon/gsd-shar* /usr/lib/gnome-settings-daemon/backup`
 
 __Do the same for Evolution (100MB of RAM):__
@@ -582,3 +582,15 @@ Second, mv them all:  
 ` sudo mv /usr/lib/evolution-data-server/evolution-* /usr/lib/evolution-data-server/backup/`  
 
 __PS:__ Gnome seems to have still some memory leaks. It grows to 1.8 GB of RAM after like 5 hours of use.
+
+### Install WRITE from Stylus Labs:
+
+Write is a better xournal :-)
+
+Download it from here -> http://www.styluslabs.com/download/
+
+Unpack and copy to the right place:
+
+    tar xf write*.tar.gz`
+    cp write209/Write/Write /usr/local/bin
+    chmod +x /usr/local/bin/Write
