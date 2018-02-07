@@ -3,7 +3,7 @@
 # the mac adress of your pen
 #blueMAC="EB:DD:F0:62:CF:6B"
 # command to execute
-command="xournalpp"
+command="Write"
 
 
 ####################################
