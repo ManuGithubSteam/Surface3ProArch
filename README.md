@@ -340,7 +340,7 @@ And rebuild the init: `pacman -S linux`
 
 ## Battery life
 
-To get longer battery life we need to start powertop as root. My battery went up from 3 hours to 7 hours :-)
+To get longer battery life we need to start powertop and make the screen turn off when wen want to. My battery went up from 3 hours to 7 hours :-)
 
 __Note:__ Maybe you have to reattacht the Surface cover to reactivate it because of sleep stuff in powertop
 
@@ -357,7 +357,7 @@ In Custom Value, set `shutdown`
 
 If you want you can set the timeout also, standard is 15 minutes (900 seconds)
 
-### Sudo rules
+### Sudo rules for powertop
 
 Edit the sudoers file with this (very end of the file!):
 
@@ -365,13 +365,9 @@ Edit the sudoers file with this (very end of the file!):
 
 Now powertop and btmon should function without root password required.
 
-Add this to autostart script:
-
-`sudo powertop --auto-tune &`
-
 ### Systemd Service
 
-You can also make a systemd service and it will start at boot and autotune.
+You should also make a systemd service and it will start at boot and autotune.
 
 `nano /etc/systemd/system/powertop.service`
      
@@ -393,6 +389,83 @@ You can also make a systemd service and it will start at boot and autotune.
 Activate the service:
 
 `systemctl enable powertop.service`
+
+### Install ACPId
+
+Install the acpid to run powertop when you disconnect the AC Power, together with the systemd service this should cover most use cases.
+
+`pacman -S acpi`
+
+Now edit `/etc/acpi/handler.sh`
+
+Search for the Line "AC unplugged" in the script. Beneath the logger line add:
+
+    logger 'AC unplugged'
+    powertop --auto-tune &
+    
+Save and you are set:-)
+
+### Power Button turns screen off
+
+To accomplish this feat you have to do some tinkering as the GNOME Devs think the user is a child who should not do some stuff with its power button behaviour....
+
+In `/etc/systemd/logind.conf` set 
+
+`HandlePowerKey=ignore`
+
+Next make Gnome do nothing with the button.
+
+`gsettings set org.gnome.settings-daemon.plugins.power power-button-action 'nothing'`
+
+Then create this file: 
+
+    /etc/acpi/screenoff.sh
+    #!/bin/bash
+    #Script to simulate normal power button actions with gnome
+    #Case 1 is launched from a startup script, to save the session info
+    #Case 2 loads the session info to prompt the user for powering down
+    case $1 in
+    1)
+        echo DISPLAY=$DISPLAY > /tmp/gnome-session
+        echo SESSION_MANAGER=$SESSION_MANAGER >> /tmp/gnome-session
+        echo XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR >> /tmp/gnome-session
+    ;;
+    2)
+        gnome_session_user=$(ps -o command,user -u gdm,root -N | grep gnome-session | awk '{print $2}')
+        export $(cat /tmp/gnome-session)
+        sudo -E -u $gnome_session_user /home/user/.scripts/screenoff.sh
+    esac
+
+Make it executable `chmod +x /etc/acpi/screenoff.sh`
+
+Newt make the capture of the ENV vars:
+
+`~/.config/autostart/screen.desktop`
+
+     [Desktop Entry]
+     Name=SessionSaver
+     GenericName=Session Startup Saver
+     Exec=/etc/acpi/screenoff.sh 1
+     Terminal=false
+     Type=Application
+     X-GNOME-Autostart-enabled=true
+
+Don't forget to start it once by hand.
+
+Now edit `/etc/acpi/handler.sh`
+
+Search for the Line Power Button stuff in the script. Beneath the logger line add:
+    
+    logger 'Powerbutton.....`
+    /etc/acpi/screenoff.sh 2
+
+Save and you are set:-)
+
+To make this work, restart the acpi deamon and gather the ENV vars:
+
+`sudo systemctl restart acpid`  
+
+`/etc/acpid/screenoff.sh 1`
 
 ## Optimizations
 
