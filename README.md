@@ -17,9 +17,7 @@ So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gn
   * https://extensions.gnome.org/extension/1326/block-caribou/
   * https://extensions.gnome.org/extension/1061/on-screen-keyboard-button/
 * Make Udev Rule do something cool when Typecover conects
-* Look into Laptop Mode tools
 * Make Mypaint useable with the stylus
-* Whats that powertop safe file ?
 * Optimise scripts for powersave (5 hours instad of 7 without the scripts)
 * Touchscreen Apps :-)
 * Grub2 keyboard hack, UEFI Keyboard?
