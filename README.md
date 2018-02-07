@@ -23,10 +23,11 @@ So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gn
 * Optimise scripts for powersave (5 hours instad of 7 without the scripts)
 * Touchscreen Apps :-)
 * Grub2 keyboard hack, UEFI Keyboard?
-* TTY Console Fronts
+* ~~TTY Console Fronts~~
 * More touch gestures (fusuma, libinput, ginn, touchegg??)
 * Look into Write APP SysLabs
 * Make Gnome save RAM
+* 
 * Make the Stylus semi-Autoconnect with a script
 * Better Gnome expirence (less child like desktop)
   * https://extensions.gnome.org/extension/898/mmod-panel/
@@ -327,6 +328,18 @@ As Gnome tries to mimic Windows we need to trust the application once so it will
 
 To do that, just go with Nautlius in the autostart folder and execute the .desktop file once.
 
+### TTY Consoles
+
+To get a bigger font in the TTYs change `/etc/vconsole.conf`:
+
+    /etc/vconsole.conf
+    FONT=sun12x22
+    KEYMAP=de
+
+To use the specified font in early userspace, use the `consolefont` hook in `/etc/mkinitcpio.conf`.
+
+And rebuild the init: `pacman -S linux`
+
 ## Battery life
 
 To get longer battery life we need to start powertop as root. My battery went up from 3 hours to 7 hours :-)
@@ -355,13 +368,13 @@ You can also make a systemd service and it will start at boot and autotune.
     Description=Powertop autotune at boot
 
     [Service]
-    Type=oneshot
-    ExecStart=/usr/bin/powertop --auto-tune 
-    # disable timeout logic
-    TimeoutSec=0
-    StandardOutput=tty
-    RemainAfterExit=yes
-    SysVStartPriority=99
+    Type=oneshot
+    ExecStart=/usr/bin/powertop --auto-tune 
+    # disable timeout logic
+    TimeoutSec=0
+    StandardOutput=tty
+    RemainAfterExit=yes
+    SysVStartPriority=99
 
     [Install]
     WantedBy=multi-user.target
