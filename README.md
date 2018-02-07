@@ -549,9 +549,27 @@ earlyoom checks the amount of available memory and (since version 0.5) free swap
 `sudo systemctl start earlyoom`
 
 ### Install Chrome Tab suspender
-Unload, park, suspend tabs to reduce memory footprint of chrome.   
+Unload, park, suspend tabs to reduce memory footprint of chrome.  Set the timer to 5 minutes and activate auto reload :-)
 
 -> https://chrome.google.com/webstore/detail/the-great-suspender/klbibkeccnjlkjkiokjodocebajanakg/related?hl=en
 
+### Kill Gnome stuff to save RAM
 
+Gnome lets run a lot of deamons who do use RAM. If you plan to use the surface as a second pc or not use evolution and social features at all. Consider to remove some of them for more RAM and a bit longer battery life:
 
+First, mkdir a new folder in /usr/lib/gnome-settings-daemon/:
+`sudo mkdir /usr/lib/gnome-settings-daemon/backup/`
+
+Second, mv all files you dont need into backup/ folder:
+`sudo mv -v /usr/lib/gnome-settings-daemon/gsd-print* /usr/lib/gnome-settings-daemon/backup`
+`sudo mv -v /usr/lib/gnome-settings-daemon/gsd-shar* /usr/lib/gnome-settings-daemon/backup`
+
+Do the same for Evolution (100MB of RAM):
+
+First, mkdir a backup directory:
+`sudo mkdir /usr/lib/evolution/backup/`
+
+Second, mv them all:
+` sudo mv /usr/lib/evolution/evolution-* /usr/lib/evolution/backup/`
+
+PS: Gnome seems to have still some memory leaks. It grows to 1.8 GB of RAM after like 5 hours of use.
