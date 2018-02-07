@@ -137,13 +137,13 @@ Edit `/etc/systemd/logind.conf `
 
 Change that line to: 
 
-`HandleLidSwitch=lock`
+`HandleLidSwitch=poweroff`
 
 `HandlePowerKey=poweroff`
 
-So you can lock the Tablet with the Type Cover and power it down when you Press the Power button.
+So you can lock the Tablet (not with Gnome) with the Type Cover and power it down when you Press the Power button.
 
-__NOTE:__ There is a Gnome Setting in "Power" Menu that needs to be changed as well!
+__NOTE:__ There is a Gnome Setting in "Power" Menu that needs to be changed as well! Gnome does not honor the "lock" setting :-(
 
 ## Install GDM
 
