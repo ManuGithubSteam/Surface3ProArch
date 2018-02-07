@@ -27,7 +27,7 @@ So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gn
 * More touch gestures (fusuma, libinput, ginn, touchegg??)
 * Look into Write APP SysLabs
 * Make Gnome save RAM
-* 
+* Power button behaviour
 * Make the Stylus semi-Autoconnect with a script
 * Better Gnome expirence (less child like desktop)
   * https://extensions.gnome.org/extension/898/mmod-panel/
