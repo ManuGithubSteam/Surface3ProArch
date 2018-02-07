@@ -6,7 +6,8 @@ I wanted a convertible with good Linux support. After some toying with the T100T
 So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gnome desktop for best touch support.
 
 # TODO:
-* Get the eraser of the pen to work (HELP NEEDED!!! :)
+* ~~Get the eraser of the pen to work (HELP NEEDED!!! :)~~ 
+  * It turns out that the surface 3 Pen has no eraser on the top.
 * ~~Powertop script - multiple runs, check if on battery~~
 * ~~Figure out Gnome Autostart~~
 * ~~Make xjournal fullscreen and foreground~~ (DEPREACHED: use Write instead:)
