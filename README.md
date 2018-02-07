@@ -346,6 +346,19 @@ To get longer battery life we need to start powertop as root. My battery went up
 
 __Note:__ Maybe you have to reattacht the Surface cover to reactivate it because of sleep stuff in powertop
 
+### Make Gnome shutdown on battery 
+
+When Gnome is on battery, it gives you the choice to hibernate or suspend the laptop aftetr some time of inactivity.
+As both are no options for us, we need to tinker with the Gnome registry:
+
+Use dconf-editor to navigate to: `org.gnome.settings-daemon.plugins.power`
+
+Here go into: `sleep-inactive-battery-type` 
+
+In Custom Value, set `shutdown`
+
+If you want you can set the timeout also, standard is 15 minutes (900 seconds)
+
 ### Sudo rules
 
 Edit the sudoers file with this (very end of the file!):
