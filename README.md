@@ -7,7 +7,7 @@ So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gn
 
 # TODO:
 * Get the eraser of the pen to work (HELP NEEDED!!! :)
-* Powertop script - multiple runs, check if on battery
+* ~~Powertop script - multiple runs, check if on battery~~
 * ~~Figure out Gnome Autostart~~
 * Make xjournal fullscreen and foreground
 * VM Writeback seconds!
@@ -137,11 +137,7 @@ Change that line to:
 
 `HandleLidSwitch=poweroff`
 
-`HandlePowerKey=poweroff`
-
-So you can lock the Tablet (not with Gnome) with the Type Cover and power it down when you Press the Power button.
-
-__NOTE:__ There is a Gnome Setting in "Power" Menu that needs to be changed as well! Gnome does not honor the "lock" setting :-(
+So you can power down the Tablet with the Type Cover closeing.
 
 ## Install GDM
 
@@ -357,13 +353,17 @@ In Custom Value, set `shutdown`
 
 If you want you can set the timeout also, standard is 15 minutes (900 seconds)
 
+Also make sure to set `sleep-inactive-ac-type` to `blank` and the timeout for AC action to 300.
+
+For some reason, this does also work when on battery and will blank the screen after some time..
+
 ### Sudo rules for powertop
 
 Edit the sudoers file with this (very end of the file!):
 
 `user ALL=NOPASSWD: /usr/bin/powertop, /bin/btmon`
 
-Now powertop and btmon should function without root password required.
+Now powertop and btmon should function without password required.
 
 ### Systemd Service
 
@@ -404,6 +404,26 @@ Search for the Line "AC unplugged" in the script. Beneath the logger line add:
     powertop --auto-tune &
     
 Save and you are set:-)
+
+Enable the acpid.servive
+
+`systemctl enable acpid.servive`
+
+### Powertop optimizations
+
+For some reason some settings from powertop will not be set when you use the autotune feature.
+
+Create this file: `/etc/sysctl.d/99-vm.conf` with
+
+    vm.dirty_writeback_centisecs = 6000
+    kernel.nmi_watchdog = 0
+    vm.laptop_mode = 5    
+
+This will reduce disk writes, deactivate kernel watchdog and save power.
+
+Create `/etc/modprobe.d/audio_powersave.conf`:
+
+    options snd_hda_intel power_save=1
 
 ### Power Button turns screen off
 
@@ -466,6 +486,13 @@ To make this work, restart the acpi deamon and gather the ENV vars:
 `sudo systemctl restart acpid`  
 
 `/etc/acpid/screenoff.sh 1`
+
+Write the local screenoff.sh file:
+
+`.config/autostart/screenoff.sh`
+
+    #!/bin/bash
+    xset dpms force off
 
 ## Optimizations
 
