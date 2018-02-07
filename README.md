@@ -548,4 +548,10 @@ earlyoom checks the amount of available memory and (since version 0.5) free swap
 `sudo systemctl enable earlyoom`  
 `sudo systemctl start earlyoom`
 
+### Install Chrome Tab suspender
+Unload, park, suspend tabs to reduce memory footprint of chrome.   
+
+-> https://chrome.google.com/webstore/detail/the-great-suspender/klbibkeccnjlkjkiokjodocebajanakg/related?hl=en
+
+
 
