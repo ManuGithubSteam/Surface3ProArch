@@ -10,7 +10,7 @@ So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gn
 * ~~Powertop script - multiple runs, check if on battery~~
 * ~~Figure out Gnome Autostart~~
 * Make xjournal fullscreen and foreground
-* VM Writeback seconds!
+* ~~VM Writeback seconds!~~
 * Deactivate Gnome Virt Keyboard on single click
   * https://extensions.gnome.org/extension/936/widget-blocker/
   * https://extensions.gnome.org/extension/1088/overview-now/
