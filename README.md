@@ -8,7 +8,7 @@ So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gn
 # TODO:
 * Get the eraser of the pen to work (HELP NEEDED!!! :)
 * Powertop script - multiple runs, check if on battery
-* Figure out Gnome Autostart
+* ~~Figure out Gnome Autostart~~
 * Make xjournal fullscreen and foreground
 * Intel Realtek Audio Powesave mode
 * Deactivate Gnome Virt Keyboard on single click
