@@ -279,22 +279,6 @@ Just install iio-sensor-proxy-git from AUR to get the rotation and the backlight
 To match the screen rotation with the sytlus execute the `rotate_stylus.sh` script from here. 
 Put it in Gnome Autosttart if you want.
 
-## Battery life
-
-To get longer battery life we need to start powertop as root. My battery went up from 3 hours to 7 hours :-)
-
-### Sudo rules
-
-Edit the sudoers file with this (very end of the file!):
-
-`user ALL=NOPASSWD: /usr/bin/powertop, /bin/btmon`
-
-Now powertop and btmon should function without root password required.
-
-Add this to autostart:
-
-`sudo powertop --auto-tune &`
-
 ## ScreenDPI
 
 Make a monitor config:
@@ -308,7 +292,7 @@ Make a monitor config:
 
 and create an autostart script:
 
-`~/.local/config/autostart/hidpi`
+`~./config/autostart/hidpi`
 
     #!/bin/bash
     xrandr --dpi 192 # same as Gnome
@@ -317,7 +301,45 @@ and create an autostart script:
     xrandr --output eDP-1 --scale 1.25x1.25 --panning 2160x1440 &
     gsettings set org.gnome.desktop.background show-desktop-icons true
     gsettings set org.gnome.desktop.background show-desktop-icons false
-    
+  
+Make it executeable:
+  
+ `chmod +x ~./config/autostart/hidpi`
+
+### Gnome Autostart
+
+As Gnome does not support to start a bash script at login we have to do some trickery:
+
+Create: `~./config/autostart/script.desktop`
+
+    [Desktop Entry]
+    Type=Application
+    Exec=/home/user/.config/autostart/hidpi
+    Hidden=false
+    X-GNOME-Autostart-enabled=true
+    Name=ScriptAutostart
+    Comment=Silly Gnome way to do it
+
+Now when this is done, you can check with the Gnome Tweak tool if it should start on login.
+
+If it is listed, we are nearly there. As Gnome tries to mimic Windows we need to trust the application once so it will be exectured. To do that, just go with Nautlius in the autostart folder and execute the .desktop file once.
+
+## Battery life
+
+To get longer battery life we need to start powertop as root. My battery went up from 3 hours to 7 hours :-)
+
+### Sudo rules
+
+Edit the sudoers file with this (very end of the file!):
+
+`user ALL=NOPASSWD: /usr/bin/powertop, /bin/btmon`
+
+Now powertop and btmon should function without root password required.
+
+Add this to autostart script:
+
+`sudo powertop --auto-tune &`
+  
 ## Optimizations
 
 Some time for some optimazations :-)
