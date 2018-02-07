@@ -322,11 +322,16 @@ Create: `~./config/autostart/script.desktop`
 
 Now when this is done, you can check with the Gnome Tweak tool if it should start on login.
 
-If it is listed, we are nearly there. As Gnome tries to mimic Windows we need to trust the application once so it will be exectured. To do that, just go with Nautlius in the autostart folder and execute the .desktop file once.
+If it is listed, we are nearly there. 
+As Gnome tries to mimic Windows we need to trust the application once so it will be exectured. 
+
+To do that, just go with Nautlius in the autostart folder and execute the .desktop file once.
 
 ## Battery life
 
 To get longer battery life we need to start powertop as root. My battery went up from 3 hours to 7 hours :-)
+
+__Note:__ Maybe you have to reattacht the Surface cover to reactivate it because of sleep stuff in powertop
 
 ### Sudo rules
 
@@ -339,7 +344,32 @@ Now powertop and btmon should function without root password required.
 Add this to autostart script:
 
 `sudo powertop --auto-tune &`
-  
+
+### Systemd Service
+
+You can also make a systemd service and it will start at boot and autotune.
+
+`nano /etc/systemd/system/powertop.service`
+     
+    [Unit]
+    Description=Powertop autotune at boot
+
+    [Service]
+    Type=oneshot
+    ExecStart=/usr/bin/powertop --auto-tune 
+    # disable timeout logic
+    TimeoutSec=0
+    StandardOutput=tty
+    RemainAfterExit=yes
+    SysVStartPriority=99
+
+    [Install]
+    WantedBy=multi-user.target
+
+Activate the service:
+
+`systemctl enable powertop.service`
+
 ## Optimizations
 
 Some time for some optimazations :-)
