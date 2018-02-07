@@ -9,7 +9,7 @@ So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gn
 * Get the eraser of the pen to work (HELP NEEDED!!! :)
 * ~~Powertop script - multiple runs, check if on battery~~
 * ~~Figure out Gnome Autostart~~
-* Make xjournal fullscreen and foreground
+* ~~Make xjournal fullscreen and foreground~~ (DEPREACHED: use Write instead:)
 * ~~VM Writeback seconds!~~
 * Deactivate Gnome Virt Keyboard on single click
   * https://extensions.gnome.org/extension/936/widget-blocker/
@@ -23,9 +23,7 @@ So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gn
 * Grub2 keyboard hack, UEFI Keyboard?
 * ~~TTY Console Fronts~~
 * More touch gestures (fusuma, libinput, ginn, touchegg??)
-* Look into Write APP SysLabs
-* Make Gnome save RAM
-* Deactivate wayland
+* ~~Look into Write APP SysLabs~~
 * Power button behaviour
 * Make the Stylus semi-Autoconnect with a script
 * Better Gnome expirence (less child like desktop)
