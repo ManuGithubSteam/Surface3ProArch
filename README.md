@@ -572,4 +572,12 @@ First, mkdir a backup directory:
 Second, mv them all:  
 ` sudo mv /usr/lib/evolution/evolution-* /usr/lib/evolution/backup/`  
 
+First, mkdir a backup directory:  
+
+`sudo mkdir /usr/lib/evolution-data-server/backup/`  
+
+Second, mv them all:  
+
+` sudo mv /usr/lib/evolution-data-server/evolution-* /usr/lib/evolution-data-server/backup/`  
+
 __PS:__ Gnome seems to have still some memory leaks. It grows to 1.8 GB of RAM after like 5 hours of use.
