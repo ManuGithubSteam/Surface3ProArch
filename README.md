@@ -376,7 +376,7 @@ You should also make a systemd service and it will start at boot and autotune.
 
     [Service]
     Type=oneshot
-    ExecStart=/usr/bin/powertop --auto-tune 
+    ExecStart=/usr/bin/powertop --auto-tune && echo '1' > '/sys/module/snd_hda_intel/parameters/power_save';
     # disable timeout logic
     TimeoutSec=0
     StandardOutput=tty
@@ -402,6 +402,7 @@ Search for the Line "AC unplugged" in the script. Beneath the logger line add:
 
     logger 'AC unplugged'
     powertop --auto-tune &
+    echo '1' > '/sys/module/snd_hda_intel/parameters/power_save';
     
 Save and you are set:-)
 
@@ -413,17 +414,26 @@ Enable the acpid.servive
 
 For some reason some settings from powertop will not be set when you use the autotune feature.
 
-Create this file: `/etc/sysctl.d/99-vm.conf` with
+Create this file: `/etc/sysctl.d/vm.conf` with
 
     vm.dirty_writeback_centisecs = 6000
-    kernel.nmi_watchdog = 0
     vm.laptop_mode = 5    
 
-This will reduce disk writes, deactivate kernel watchdog and save power.
+This will reduce disk write and save power.
 
 Create `/etc/modprobe.d/audio_powersave.conf`:
 
     options snd_hda_intel power_save=1
+    
+To reduce Audio codec power consumption.
+ 
+Edit the `fstab` and add `commit=60` as a option in fstab after your filesystem mounts to match with the writebacks from above.
+
+Add `nmi_watchdog=0` to the DEFAULT kernel line in `/etc/default/grub` to disable it completely from boot. Then rebuild Grub.cfg with `grub-mkconfig -o /boot/grub/grub.cfg`
+
+#### Turn off Webcams
+
+If you don't want to use the webcams, turn them off in the UEFI Bios.
 
 ### Power Button turns screen off
 
