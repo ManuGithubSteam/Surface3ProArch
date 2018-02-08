@@ -29,6 +29,7 @@ So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gn
 * Make the Stylus semi-Autoconnect with a script
 * FN Shortcuts for display birghtness
 * Make the Pen unlock/wakeup the screen
+* Rotate script for HIDPI, autorotate works only without HIDPI
 * Better Gnome expirence (less child like desktop)
   * https://extensions.gnome.org/extension/898/mmod-panel/
   * https://extensions.gnome.org/extension/503/always-zoom-workspaces/
