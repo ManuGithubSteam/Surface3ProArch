@@ -595,3 +595,7 @@ Unpack and copy to the right place:
     tar xf write*.tar.gz`
     cp write209/Write/Write /usr/local/bin
     chmod +x /usr/local/bin/Write
+
+### Use Dark Desktop Theme
+
+Dark Theme helps reduce Battery drain and it looks goog. Use Gnome-Tweaks to set it.
