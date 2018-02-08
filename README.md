@@ -310,9 +310,9 @@ To get bigger icons in xournal and other GTK2 apps.
 
 Add this stuff to `~.gtkrc-2.0`:
 
-`gtk-icon-sizes="gtk-small-toolbar=64,64"`  
-`gtk-icon-sizes="gtk-small-toolbar=64,64"`
-
+    gtk-icon-sizes="gtk-small-toolbar=64,64"  
+    gtk-icon-sizes="gtk-small-toolbar=64,64"
+    gtk-font-name="Cantarell 12"
 
 ### Gnome Autostart
 
