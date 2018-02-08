@@ -298,7 +298,6 @@ and create an autostart script:
     xrandr --output eDP-1 --scale 1.25x1.25 --panning 2160x1440 &
     gsettings set org.gnome.desktop.background show-desktop-icons true
     gsettings set org.gnome.desktop.background show-desktop-icons false
-    export GDK_SCALE=2
     export QT_AUTO_SCREEN_SCALE_FACTOR=1    
   
 Make it executeable:
@@ -307,11 +306,13 @@ Make it executeable:
 
 ### GTK+ 2
 
-Scaling of UI elements is not supported by the toolkit itself, however it's possible to generate a theme with elements pre-scaled for HiDPI display using `oomox-git`
+To get bigger icons in xournal and other GTK2 apps.
 
-`pacuar -S oomox-git`
+Add this stuff to `~.gtkrc-2.0`:
 
-Then select a gtk2 theme and make sure to activate "GTK2 HiDPI"
+`gtk-icon-sizes="gtk-small-toolbar=64,64"`  
+`gtk-icon-sizes="gtk-small-toolbar=64,64"`
+
 
 ### Gnome Autostart
 
