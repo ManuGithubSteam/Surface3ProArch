@@ -1,0 +1,42 @@
+KDE Touchscreen Games
+
+This games can be played on a touchscreen, especially at the T100TA, wich does NOT support multi-touch (right click) (due to no synaptic driver? i think)!
+
+######################
+
+Kbreakout
+Kmahjongg
+Kdiamond
+KolorLines
+Kollision
+Klickety
+Bovo
+Kfourline
+Kpat
+KShisen
+Katomic
+Kblackbox
+Ksquares
+Knetwalk
+Ksudoku
+Kjumpingcube
+Kreversi
+
+
+++++++++++++
+
+
+GNOME Touchscreen Games
+
+Only covers new/additional games who are not in the kde list above
+
+######
+
+Gnome-Klotski
+Gnome-Tetravex
+Gnome-Chess
+Lightsoff
+Hitori
+
+
+
