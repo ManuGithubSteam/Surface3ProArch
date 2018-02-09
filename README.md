@@ -18,7 +18,7 @@ So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gn
   * https://extensions.gnome.org/extension/1326/block-caribou/
   * https://extensions.gnome.org/extension/1061/on-screen-keyboard-button/
 * Make Udev Rule do something cool when Typecover conects
-* Make Mypaint useable with the stylus
+* Make Krita useable with the stylus
 * Optimise scripts for powersave (5 hours instad of 7 without the scripts)
 * Touchscreen Apps :-)
 * Grub2 keyboard hack, UEFI Keyboard?
@@ -30,7 +30,9 @@ So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gn
 * FN Shortcuts for display birghtness
 * Make the Pen unlock/wakeup the screen
 * Rotate script for HIDPI, autorotate works only without HIDPI.
-* start Palmreject only when pen is found
+* start Palmreject only when pen is found -> Udev rule ?
+* Check if laptop mode tools are active ? Powertop related?
+* GTK2 Wrapper script!
 * Better Gnome expirence (less child like desktop)
   * https://extensions.gnome.org/extension/898/mmod-panel/
   * https://extensions.gnome.org/extension/503/always-zoom-workspaces/
@@ -391,7 +393,7 @@ You should also make a systemd service and it will start at boot and autotune.
 
     [Service]
     Type=oneshot
-    ExecStart=/usr/bin/powertop --auto-tune && echo '1' > '/sys/module/snd_hda_intel/parameters/power_save';
+    ExecStart=/usr/bin/powertop --auto-tune
     # disable timeout logic
     TimeoutSec=0
     StandardOutput=tty
@@ -417,7 +419,6 @@ Search for the Line "AC unplugged" in the script. Beneath the logger line add:
 
     logger 'AC unplugged'
     powertop --auto-tune &
-    echo '1' > '/sys/module/snd_hda_intel/parameters/power_save';
     
 Save and you are set:-)
 
