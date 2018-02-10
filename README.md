@@ -31,7 +31,7 @@ So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gn
 * Make the Pen unlock/wakeup the screen
 * Rotate script for HIDPI, autorotate works only without HIDPI.
 * start Palmreject only when pen is found -> Udev rule ?
-* Check if laptop mode tools are active ? Powertop related?
+* ~~Check if laptop mode tools are active ? Powertop related?~~
 * GTK2 Wrapper script!
 * Write Shell Plugin to display caribou at click.
 * Better Gnome expirence (less child like desktop)
