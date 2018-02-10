@@ -18,7 +18,7 @@ So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gn
   * https://extensions.gnome.org/extension/1326/block-caribou/
   * https://extensions.gnome.org/extension/1061/on-screen-keyboard-button/
 * Make Udev Rule do something cool when Typecover conects
-* Make Krita useable with the stylus
+* ~~Make Krita useable with the stylus~~ works with X11 not with Wayland
 * Optimise scripts for powersave (5 hours instad of 7 without the scripts)
 * Touchscreen Apps :-)
 * Grub2 keyboard hack, UEFI Keyboard?
@@ -354,9 +354,8 @@ And rebuild the init: `pacman -S linux`
 
 ## Battery life
 
-To get longer battery life we need to start powertop and make the screen turn off when wen want to. My battery went up from 3 hours to 7 hours :-)
+To get longer battery life we need to make the screen turn off when wen want to. My battery went up from 3 hours to 7 hours :-)
 
-__Note:__ Maybe you have to reattacht the Surface cover to reactivate it because of sleep stuff in powertop
 
 ### Make Gnome shutdown on battery 
 
@@ -383,51 +382,11 @@ Edit the sudoers file with this (very end of the file!):
 
 Now powertop and btmon should function without password required.
 
-### Systemd Service
+### Powertop
 
-You should also make a systemd service and it will start at boot and autotune.
+Laptop mode tools handels the activation of powertop. No need to do it by hand.
 
-`nano /etc/systemd/system/powertop.service`
-     
-    [Unit]
-    Description=Powertop autotune at boot
-
-    [Service]
-    Type=oneshot
-    ExecStart=/usr/bin/powertop --auto-tune
-    # disable timeout logic
-    TimeoutSec=0
-    StandardOutput=tty
-    RemainAfterExit=yes
-    SysVStartPriority=99
-
-    [Install]
-    WantedBy=multi-user.target
-
-Activate the service:
-
-`systemctl enable powertop.service`
-
-### Install ACPId
-
-Install the acpid to run powertop when you disconnect the AC Power, together with the systemd service this should cover most use cases.
-
-`pacman -S acpi`
-
-Now edit `/etc/acpi/handler.sh`
-
-Search for the Line "AC unplugged" in the script. Beneath the logger line add:
-
-    logger 'AC unplugged'
-    powertop --auto-tune &
-    
-Save and you are set:-)
-
-Enable the acpid.servive
-
-`systemctl enable acpid.servive`
-
-### Powertop optimizations
+### Power optimizations
 
 For some reason some settings from powertop will not be set when you use the autotune feature.
 
@@ -455,6 +414,14 @@ If you don't want to use the webcams, turn them off in the UEFI Bios.
 ### Power Button turns screen off
 
 To accomplish this feat you have to do some tinkering as the GNOME Devs think the user is a child who should not do some stuff with its power button behaviour....
+
+Install the acpid to run powertop when you disconnect the AC Power, together with the systemd service this should cover most use cases.
+
+`pacman -S acpi`
+
+Enable the acpid.servive
+
+`systemctl enable acpid.servive`
 
 In `/etc/systemd/logind.conf` set 
 
