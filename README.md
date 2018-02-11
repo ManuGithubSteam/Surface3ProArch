@@ -30,7 +30,7 @@ So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gn
 * start Palmreject only when pen is found -> Udev rule ?
 * ~~Check if laptop mode tools are active ? Powertop related?~~
 * GTK2 Wrapper script!
-* Write Shell Plugin to display caribou at click.
+* Onboard integration in gnomeshell
 * Better Gnome expirence (less child like desktop)
   * https://extensions.gnome.org/extension/898/mmod-panel/
   * https://extensions.gnome.org/extension/503/always-zoom-workspaces/
