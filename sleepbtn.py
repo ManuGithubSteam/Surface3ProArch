@@ -21,7 +21,7 @@ def MyThreadShutdown():
 		shutdown_performed = True
 		
 # please check your number of the touchscreen with xinput list    
-touchscreen_devices = ["ATML1000:00", "SIS0817:00"]
+touchscreen_devices = ["ATML1000:00","NTRG001:01" ,"SIS0817:00"]
 
 def find_xinput_dev(devicename):
 	result = ""
