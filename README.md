@@ -26,7 +26,7 @@ So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gn
 * Make the Stylus semi-Autoconnect with a script
 * FN Shortcuts for display birghtness
 * Make the Pen unlock/wakeup the screen
-* Rotate does not work with HIDPi scaleing of X11. Correct Wiki
+* ~~Rotate does not work with HIDPi scaleing of X11. Correct Wiki~~
 * start Palmreject only when pen is found -> Udev rule ?
 * ~~Check if laptop mode tools are active ? Powertop related?~~
 * GTK2 Wrapper script!
