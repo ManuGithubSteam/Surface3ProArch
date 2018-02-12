@@ -22,7 +22,7 @@ So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gn
 * ~~TTY Console Fronts~~
 * More touch gestures (fusuma, libinput, ginn, touchegg??)
 * ~~Look into Write APP SysLabs~~
-* Power button behaviour script
+* ~~Power button behaviour script~~
 * Make the Stylus semi-Autoconnect with a script
 * FN Shortcuts for display birghtness
 * Make the Pen unlock/wakeup the screen
@@ -30,11 +30,10 @@ So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gn
 * start Palmreject only when pen is found -> Udev rule ?
 * ~~Check if laptop mode tools are active ? Powertop related?~~
 * GTK2 Wrapper script!
-* Onboard integration in gnomeshell
+* ~~Onboard integration in gnomeshell~~
 * Better Gnome expirence (less child like desktop)
   * https://extensions.gnome.org/extension/1267/no-title-bar/
   * https://extensions.gnome.org/extension/503/always-zoom-workspaces/
-  * https://extensions.gnome.org/extension/726/shell-restart-user-menu-entry/
 
 
 ## Hardware Info
@@ -367,8 +366,6 @@ Also you need these extensions:
 -> https://extensions.gnome.org/extension/992/onboard-integration/?c=35203
 
 Make sure you also activate the "Onboard Indicator" extension from the default install. Now you should get onboard or you can activate it with the buttin in the shell.
-
-Onboard has some problems to scale with the --panning option so it will not use all of the screen and be akwardly in the middle of the screen.
 
 __Best options in the onboard-settings:__
 - Glue to the top border of the screen
