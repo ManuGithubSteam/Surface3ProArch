@@ -500,12 +500,11 @@ To make this work, restart the acpi deamon and gather the ENV vars:
 
 `/etc/acpid/screenoff.sh 1`
 
-Write the local screenoff.sh file:
+Download the local screenoff.sh file and put it here:
 
 `.config/autostart/screenoff.sh`
 
-    #!/bin/bash
-    xset dpms force off
+This will deactivate the touch and the Windows button with the screen and after some time will shutdown the device.
 
 ## Optimizations
 
