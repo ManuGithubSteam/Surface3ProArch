@@ -32,8 +32,9 @@ So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gn
 * GTK2 Wrapper script!
 * Onboard integration in gnomeshell
 * Better Gnome expirence (less child like desktop)
-  * https://extensions.gnome.org/extension/898/mmod-panel/
+  * https://extensions.gnome.org/extension/1267/no-title-bar/
   * https://extensions.gnome.org/extension/503/always-zoom-workspaces/
+  * https://extensions.gnome.org/extension/726/shell-restart-user-menu-entry/
 
 
 ## Hardware Info
@@ -369,8 +370,8 @@ Make sure you also activate the "Onboard Indicator" extension from the default i
 
 Onboard has some problems to scale with the --panning option so it will not use all of the screen and be akwardly in the middle of the screen.
 
-Best options in the onboard-settings:
-- Glue to the top border od the screen
+__Best options in the onboard-settings:__
+- Glue to the top border of the screen
 - Compact layout
 - Nightshade Theme fits nicely into Gnome.
 
@@ -602,3 +603,9 @@ Unpack and copy to the right place:
 ### Use Dark Desktop Theme
 
 Dark Theme helps reduce Battery drain and it looks goog. Use Gnome-Tweaks to set it.
+
+### Disable Workspaces 
+
+To get more space and a tidyer "Activities" you can disable the worspaces in Gnome-Tweaks if you not need them.
+
+
