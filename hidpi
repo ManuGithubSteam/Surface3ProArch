@@ -8,11 +8,7 @@ xrandr --output eDP-1 --scale 1.25x1.25 --panning 2160x1440
 gsettings set org.gnome.desktop.background show-desktop-icons true
 gsettings set org.gnome.desktop.background show-desktop-icons false
 
-# uses systemd instead keyboard keeps working 
-#sudo powertop --auto-tune 
-
 #sudo btmon | /home/user/pen_click.sh &
 #/home/user/palmreject.sh &
-#/home/user/rotate_stylus.sh &
-#cd
-#./autorotate
+
+
