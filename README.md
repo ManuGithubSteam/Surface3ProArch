@@ -608,4 +608,8 @@ Dark Theme helps reduce Battery drain and it looks goog. Use Gnome-Tweaks to set
 
 To get more space and a tidyer "Activities" you can disable the worspaces in Gnome-Tweaks if you not need them.
 
+If you need them on the other hand, make sure you use: -> https://extensions.gnome.org/extension/503/always-zoom-workspaces/
 
+## Disable Title-Bars
+
+To make more room you can use this: -> https://extensions.gnome.org/extension/1267/no-title-bar/
