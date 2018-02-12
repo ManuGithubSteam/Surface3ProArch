@@ -245,6 +245,28 @@ Install the  `pacman -S xf86-input-wacom` package and make these files:
       Option "TPCButton" "on"  
     EndSection  
 
+### Krita and Xrandr scaling
+
+It seems Mypaint does handle the scaleing of the desktop much better than krita does.
+
+Krita will not allow you to use the full screen (1.25*) of the scaled down version and you only can und 1.0 wich means not all areas in your canvas will be reachable (no --panning support in xsetwacom or whatever). In short Krita can not be used if you plan on useing a scaled desktop. 
+
+If you are like me an Krita is your new fafourite Art tool we have to do the following:
+
+- Create a session launcher for Krita and then don't scale the desktop. This way we can do some extra stuff too.
+
+Copy /usr/share/xsessions/gnome-xorg.desktop 
+
+`cp /usr/share/xsessions/gnome-xorg.desktop /usr/share/xsessions/krita.desktop`
+
+Open the file and change the Name section to something like: `Krita Session on Xorg`
+
+Most importantly, after all the comments, go the the Exec line and make sure it looks like this:
+
+`Exec=gnome-session && touch /tmp/krita`
+
+This will let us know that this desktop is a krita session then.
+
 ### Bluethooth 
 
 Modify `/lib/systemd/system/bluetooth.service`, changing the Exec line to this:
