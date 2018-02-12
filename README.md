@@ -12,7 +12,7 @@ So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gn
 * ~~Figure out Gnome Autostart~~
 * ~~Make xjournal fullscreen and foreground~~ (DEPREACHED: use Write instead:)
 * ~~VM Writeback seconds!~~
-* Deactivate Gnome Virt Keyboard on single click
+* ~~Deactivate Gnome Virt Keyboard on single click~~
   * Use Onboard instead!
 * Make Udev Rule do something cool when Typecover conects
 * ~~Make Krita useable with the stylus~~ works with X11 not with Wayland
@@ -308,7 +308,7 @@ Make it executeable:
  
 __NOTE:__ Be aware that the xrandr scaling does __NOT work__ correctly when you rotate the screen! It will leave you with a scaling factor of 2 and when you return back, the orginal orientation will be too small. For now i don't know how to get this fixed.
 
-I opented to deactivate rotation of the Desktop, as i rarely use it:
+__I opented to deactivate rotation of the Desktop, as I rarely use it:__
 
 `gsettings set org.gnome.settings-daemon.plugins.orientation active false`
 
@@ -365,11 +365,18 @@ Also you need these extensions:
 -> https://extensions.gnome.org/extension/1326/block-caribou/  
 -> https://extensions.gnome.org/extension/992/onboard-integration/?c=35203
 
+Make sure you also activate the "Onboard Indicator" extension from the default install. Now you should get onboard or you can activate it with the buttin in the shell.
+
+Onboard has some problems to scale with the --panning option so it will not use all of the screen and be akwardly in the middle of the screen.
+
+Best options in the onboard-settings:
+- Glue to the top border od the screen
+- Compact layout
+- Nightshade Theme fits nicely into Gnome.
 
 ## Battery life
 
 To get longer battery life we need to make the screen turn off when wen want to. My battery went up from 3 hours to 7 hours :-)
-
 
 ### Make Gnome shutdown on battery 
 
