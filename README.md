@@ -305,6 +305,12 @@ and create an autostart script:
 Make it executeable:
   
  `chmod +x ~./config/autostart/hidpi`
+ 
+__NOTE:__ Be aware that the xrandr scaling does __NOT work__ correctly when you rotate the screen! It will leave you with a scaling factor of 2 and when you return back, the orginal orientation will be too small. For now i don't know how to get this fixed.
+
+I opented to deactivate rotation of the Desktop, as i rarely use it:
+
+`gsettings set org.gnome.settings-daemon.plugins.orientation active false`
 
 ### GTK+ 2
 
@@ -348,6 +354,17 @@ To get a bigger font in the TTYs change `/etc/vconsole.conf`:
 To use the specified font in early userspace, use the `consolefont` hook in `/etc/mkinitcpio.conf`.
 
 And rebuild the init: `pacman -S linux`
+
+## Replace the virtual keyboard
+
+As Caribou the OSK of Gnome has some uggly bugs who make it appear virtually everywhere. Its best to replace it:
+
+`pacman -Syu onboard`
+
+Also you need these extensions:   
+-> https://extensions.gnome.org/extension/1326/block-caribou/  
+-> https://extensions.gnome.org/extension/992/onboard-integration/?c=35203
+
 
 ## Battery life
 
