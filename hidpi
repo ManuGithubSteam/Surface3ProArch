@@ -1,9 +1,9 @@
 #!/bin/bash
 sleep 4
 #xrandr --dpi 192
-xrandr --output eDP-1 --scale 1.4x1.4 &
+xrandr --output eDP-1 --scale 1.25x1.25 &
 sleep 1
-xrandr --output eDP-1 --scale 1.4x1.4 --panning 2160x1440
+xrandr --output eDP-1 --scale 1.25x1.25 --panning 2160x1440
 #sleep 1
 gsettings set org.gnome.desktop.background show-desktop-icons true
 gsettings set org.gnome.desktop.background show-desktop-icons false
