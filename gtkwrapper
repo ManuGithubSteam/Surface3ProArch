@@ -1,0 +1,14 @@
+#!/bin/bash
+# Wrapper for gtk2 hiDPI
+
+cd
+
+# make fonts bigger
+gsettings set org.gnome.desktop.interface text-scaling-factor 1.5
+
+#start programm
+$1
+
+# sewt fonts back to default
+gsettings set org.gnome.desktop.interface text-scaling-factor 1
+
