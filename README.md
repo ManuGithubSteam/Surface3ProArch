@@ -247,23 +247,24 @@ Install the  `pacman -S xf86-input-wacom` package and make these files:
 
 ### Krita and Xrandr scaling
 
-It seems Mypaint does handle the scaleing of the desktop much better than krita does.
+It seems Mypaint does handle the scaleing of the desktop with xrandr much better than krita does.
 
 Krita will not allow you to use the full screen (1.25*) of the scaled down version and you only can und 1.0 wich means not all areas in your canvas will be reachable (no --panning support in xsetwacom or whatever). In short Krita can not be used if you plan on useing a scaled desktop. 
 
-If you are like me an Krita is your new fafourite Art tool we have to do the following:
+If you are like me an Krita is your new favourite Art tool we have to do the following:
 
 - Create a session launcher for Krita and then don't scale the desktop. This way we can do some extra stuff too.
 
-Copy /usr/share/xsessions/gnome-xorg.desktop 
+Create  `usr/share/xsessions/krita.desktop`:
 
-`cp /usr/share/xsessions/gnome-xorg.desktop /usr/share/xsessions/krita.desktop`
-
-Open the file and change the Name section to something like: `Krita Session on Xorg`
-
-Most importantly, after all the comments, go the the Exec line and make sure it looks like this:
-
-`Exec=gnome-session && touch /tmp/krita`
+    [Desktop Entry]
+    Name=Krita Session on Xorg
+    Comment=Joh Doe
+    Exec=env KRITAS=yes gnome-session 
+    TryExec=gnome-session
+    Icon=
+    Type=Application
+    DesktopNames=GNOME
 
 This will let us know that this desktop is a krita session then.
 
@@ -316,13 +317,24 @@ and create an autostart script:
 `~./config/autostart/hidpi`
 
     #!/bin/bash
-    xrandr --dpi 192 # same as Gnome
+    if [ -z "$KRITAS" ]; then 
+    # env does not exist - normal scaled session
+    sleep 4
+    xrandr --dpi 192
     xrandr --output eDP-1 --scale 1.25x1.25 &
     sleep 1
-    xrandr --output eDP-1 --scale 1.25x1.25 --panning 2160x1440 &
+    xrandr --output eDP-1 --scale 1.25x1.25 --panning 2160x1440
+    sleep 1
     gsettings set org.gnome.desktop.background show-desktop-icons true
     gsettings set org.gnome.desktop.background show-desktop-icons false
-    export QT_AUTO_SCREEN_SCALE_FACTOR=1    
+    export QT_AUTO_SCREEN_SCALE_FACTOR=1
+    else
+    # env exist krita session
+    # noscaling stylus gets messed up
+    sleep 3
+    gtkwrapper krita --fullscreen &
+
+fi
   
 Make it executeable:
   
@@ -338,11 +350,16 @@ __I opented to deactivate rotation of the Desktop, as I rarely use it:__
 
 To get bigger icons in xournal and other GTK2 apps.
 
+This will only work in a non-scaled version of the Desktop!
+
 Add this stuff to `~.gtkrc-2.0`:
 
-    gtk-icon-sizes="gtk-small-toolbar=64,64"  
-    gtk-icon-sizes="gtk-small-toolbar=64,64"
-    gtk-font-name="Cantarell 12"
+    gtk-icon-sizes = "panel-menu=32,32:panel=32,32:gtk-menu=32,32\
+    :gtk-large-toolbar=32,32:gtk-small-toolbar=32,32:gtk-button=32,32"
+
+Next copy the gtkwrapper from here to /usr/local/bin/
+
+`sudo cp gtkwrapper /usr/local/bin`
 
 ### Gnome Autostart
 
@@ -522,7 +539,7 @@ To make this work, restart the acpi deamon and gather the ENV vars:
 
 `/etc/acpid/screenoff.sh 1`
 
-Download the local screenoff.sh file and put it here:
+Download the local screenoff.sh file and put it here(also make it executeable):
 
 `.config/autostart/screenoff.sh`
 
