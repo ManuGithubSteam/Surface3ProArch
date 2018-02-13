@@ -29,7 +29,7 @@ So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gn
 * ~~Rotate does not work with HIDPi scaleing of X11. Correct Wiki~~
 * start Palmreject only when pen is found -> Udev rule ?
 * ~~Check if laptop mode tools are active ? Powertop related?~~
-* GTK2 Wrapper script!
+* ~~GTK2 Wrapper script!~~
 * ~~Onboard integration in gnomeshell~~
 * Better Gnome expirence (less child like desktop)
   * https://extensions.gnome.org/extension/1267/no-title-bar/
@@ -333,8 +333,7 @@ and create an autostart script:
     # noscaling stylus gets messed up
     sleep 3
     gtkwrapper krita --fullscreen &
-
-fi
+    fi
   
 Make it executeable:
   
