@@ -61,5 +61,5 @@ do
     fi
   fi
   last_state=$state
-  sleep 0.1
+  sleep 0.3
 done
