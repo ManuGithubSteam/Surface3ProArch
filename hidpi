@@ -1,14 +1,23 @@
 #!/bin/bash
+
+if [ -z "$KRITAS" ]; then 
+# env does not exist - normal scaled session
+
 sleep 4
-#xrandr --dpi 192
+xrandr --dpi 192
 xrandr --output eDP-1 --scale 1.25x1.25 &
 sleep 1
 xrandr --output eDP-1 --scale 1.25x1.25 --panning 2160x1440
-#sleep 1
+sleep 1
 gsettings set org.gnome.desktop.background show-desktop-icons true
 gsettings set org.gnome.desktop.background show-desktop-icons false
 
-#sudo btmon | /home/user/pen_click.sh &
-#/home/user/palmreject.sh &
+else
+# env exist krita session
+# noscaling stylus gets messed up
+sleep 3
+evince /home/user/Documents/Books/draw_in_30_days.pdf &
+gtkwrapper krita --fullscreen &
 
 
+fi
