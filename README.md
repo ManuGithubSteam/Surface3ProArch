@@ -14,11 +14,12 @@ So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gn
 * ~~VM Writeback seconds!~~
 * ~~Deactivate Gnome Virt Keyboard on single click~~
   * Use Onboard instead!
+   * Test new keybiard from Gnome 3.28
 * Make Udev Rule do something cool when Typecover conects
 * ~~Make Krita useable with the stylus~~ works with X11 not with Wayland
 * Optimise scripts for powersave (5 hours instad of 7 without the scripts)
 * Touchscreen Apps :-)
-* Grub2 keyboard hack, UEFI Keyboard?
+* ~~Grub2 keyboard hack, UEFI Keyboard?~~
 * ~~TTY Console Fronts~~
 * More touch gestures (fusuma, libinput, ginn, touchegg??)
 * ~~Look into Write APP SysLabs~~
@@ -51,6 +52,12 @@ So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gn
 - Mini HDMI
 
 Specs can be looked up with the ean: EAN / ISBN-13: 0885370757934
+
+## Grub2 Softkeyboard
+
+To get a keyboard in Grub2,you have to set it in the uefi bios to always show itself. Then it will show, when the keyboard is NOT attached and you boot the surface fresh up. Its a little small but it gets the job done to select what you want to boot.
+
+If you use any other setting than "always" in the UEFI it will not show up! It also does not show, when it detects a keyboard on the surface wich is acutally a good thing i think.
 
 ## Basic Installation
 
@@ -414,6 +421,10 @@ __Best options in the onboard-settings:__
 
 To get longer battery life we need to make the screen turn off when wen want to. My battery went up from 3 hours to 7 hours :-)
 
+### Disable Bluethooth
+
+An active Bluethooth chip can shorten your Batter live up to 40 % so make sure it is OFF if you dont need it!
+
 ### Make Gnome shutdown on battery 
 
 When Gnome is on battery, it gives you the choice to hibernate or suspend the laptop aftetr some time of inactivity.
@@ -636,7 +647,7 @@ Unpack and copy to the right place:
 
 ### Use Dark Desktop Theme
 
-Dark Theme helps reduce Battery drain and it looks goog. Use Gnome-Tweaks to set it.
+Dark Theme helps reduce Battery drain and it looks good. Use Gnome-Tweaks to set it.
 
 ### Disable Workspaces 
 
