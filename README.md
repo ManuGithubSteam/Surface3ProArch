@@ -567,7 +567,11 @@ This will deactivate the touch and the Windows button with the screen and after 
 
 Some time for some optimazations :-)
 
-### Change system Language to English and leave the Input to German keayboard.
+### Install guake
+
+`pcman -Syu guake`
+
+### Change system Language to English and leave the Input to German keyboard.
 
 `nano /etc/locale.gen` uncomment
 
