@@ -25,7 +25,7 @@ So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gn
 * ~~Look into Write APP SysLabs~~
 * ~~Power button behaviour script~~
 * Make the Stylus semi-Autoconnect with a script
-* FN Shortcuts for display birghtness
+* ~~FN Shortcuts for display birghtness~~
 * Make the Pen unlock/wakeup the screen
 * ~~Rotate does not work with HIDPi scaleing of X11. Correct Wiki~~
 * start Palmreject only when pen is found -> Udev rule ?
@@ -307,6 +307,14 @@ Just install iio-sensor-proxy-git from AUR to get the rotation and the backlight
 
 To match the screen rotation with the sytlus execute the `rotate_stylus.sh` script from here. 
 Put it in Gnome Autosttart if you want.
+
+### Keyboard backlight control
+
+You need to download the script and make some custom Keyboard shortcuts with Gnome to make it work with the Buttons.
+
+Sadly you can not use the F1 or F2 Buttons because they will not send and event to the Kernel and are most likely internally managed. Thanks Microsoft....
+
+This scripts needs some improvement! Volunteers ?
 
 ## ScreenDPI
 
