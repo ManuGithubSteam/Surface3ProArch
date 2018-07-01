@@ -575,6 +575,14 @@ Some time for some optimazations :-)
 
 `pcman -Syu guake`
 
+After install you can change the options with `guake -p`
+
+Recommends:
+- Dark Dektop Theme
+- Alight left, 140 px offset
+- Autostart at login
+- Quick open with geany
+
 ### Change system Language to English and leave the Input to German keyboard.
 
 `nano /etc/locale.gen` uncomment
