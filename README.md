@@ -19,6 +19,7 @@ So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gn
 * ~~Make Krita useable with the stylus~~ works with X11 not with Wayland
 * Optimise scripts for powersave (5 hours instad of 7 without the scripts)
 * Better backlight script
+* Make Apps seachable with Alt+Space
 * Kernel powersave
 * Touchscreen Apps :-)
 * install DIR colors
