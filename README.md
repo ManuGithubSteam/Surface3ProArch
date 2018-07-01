@@ -573,9 +573,13 @@ This will deactivate the touch and the Windows button with the screen and after 
 
 Some time for some optimazations :-)
 
-### Install bash-completion
+### Install bash-completion && DIR_Colors
 
 `pacman -Syu bash-completion`
+
+Copy from this bashrc to ~ and
+
+Download DIR_COLORS to /etc
 
 ### Install guake
 
