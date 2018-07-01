@@ -687,7 +687,9 @@ To make more room you can use this: -> https://extensions.gnome.org/extension/12
 
 ### Places status indicator
 
-Make Open folders easier: -> https://extensions.gnome.org/extension/8/places-status-indicator/
+Make Open folders easier: ->
+https://extensions.gnome.org/extension/299/all-in-one-places/
+https://extensions.gnome.org/extension/8/places-status-indicator/
 
 ### Removeable drives menu:
 
@@ -726,4 +728,55 @@ The new features currently include:
 - Search mode with the use of DuckDuckGo
 -> https://extensions.gnome.org/extension/780/enhanced-run-dialog/
 
+### Refresh Wifi
+A manual scan Wifi button: -> https://extensions.gnome.org/extension/905/refresh-wifi-connections/
+Its ridicoulus how much stuff how is needed is removed from Gnome...
 
+### Sensors Plugin
+
+Sensors in the dash -> https://extensions.gnome.org/extension/82/cpu-temperature-indicator/
+https://extensions.gnome.org/extension/336/hardware-sensors-indicator/
+https://extensions.gnome.org/extension/471/system-info/
+### Status Area Horizontal Spacing
+
+Removes space between icons in the top panel: -> https://extensions.gnome.org/extension/355/status-area-horizontal-spacing/
+
+### Disconnect Wifi 
+
+Dissconnect Buttoon for Wifi: -> https://extensions.gnome.org/extension/904/disconnect-wifi/
+
+### Gmail Notify 
+Gmail notify in dash: -> https://extensions.gnome.org/extension/154/gmail-notify/
+
+### Alternate Menu
+
+KDE4 Like Menu -> https://extensions.gnome.org/extension/327/axe-menu/
+
+#### Pidgin integration
+
+Popups of messages: https://extensions.gnome.org/extension/782/pidgin-im-integration/
+
+### Makes Caribou rezise the workspace
+If you use the new caribou :-> https://extensions.gnome.org/extension/1024/caribou-resize-workspace/
+
+### Todo List
+Taskwarrior integtation: https://extensions.gnome.org/extension/1052/taskwarrior-integration/
+
+### Sytem Menu
+Mac like system Menu: https://extensions.gnome.org/extension/1204/system-menu/
+
+### CPU Monitor 
+Shows CPU useage in shell: -> https://extensions.gnome.org/extension/9/systemmonitor/
+
+### Music integration
+
+Crontrols for rythmbox: -> https://extensions.gnome.org/extension/30/music-integration/
+
+### SSH Connections
+Manange SSH Connections: https://github.com/eRadical/connectionmanager2
+
+### Star menu Text
+Change the Text of the activities button: https://extensions.gnome.org/extension/77/activities-button-text/
+
+### Notifications Alert
+See notifications: -> https://extensions.gnome.org/extension/258/notifications-alert-on-user-menu/
