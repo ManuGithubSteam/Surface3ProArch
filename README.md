@@ -693,4 +693,16 @@ Make Opoen folders easier:
 
 Much easyer removal off drives:
 
-### 
+### Dash to Dock
+
+Control Applications from the side of the Desktop: 
+
+#### windowNavigator
+
+Move windows to other workspaces with keyboard: 
+
+### Alternate Tab
+
+Dont group windows in the window switcher:
+
+
