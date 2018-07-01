@@ -21,6 +21,7 @@ So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gn
 * Better backlight script
 * Kernel powersave
 * Touchscreen Apps :-)
+* install DIR colors
 * ~~Grub2 keyboard hack, UEFI Keyboard?~~
 * ~~TTY Console Fronts~~
 * More touch gestures (fusuma, libinput, ginn, touchegg??)
