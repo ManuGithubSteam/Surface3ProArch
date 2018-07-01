@@ -33,6 +33,7 @@ So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gn
 * ~~GTK2 Wrapper script!~~
 * ~~Onboard integration in gnomeshell~~
 * Better Gnome expirence (less child like desktop)
+  * Show guake if mouse is in top corner
   * https://extensions.gnome.org/extension/1267/no-title-bar/
   * https://extensions.gnome.org/extension/503/always-zoom-workspaces/
 
