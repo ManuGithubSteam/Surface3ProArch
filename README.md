@@ -687,22 +687,43 @@ To make more room you can use this: -> https://extensions.gnome.org/extension/12
 
 ### Places status indicator
 
-Make Opoen folders easier:
+Make Open folders easier: -> https://extensions.gnome.org/extension/8/places-status-indicator/
 
 ### Removeable drives menu:
 
-Much easyer removal off drives:
+Much easyer removal off drives: -> https://extensions.gnome.org/extension/7/removable-drive-menu/
 
 ### Dash to Dock
 
-Control Applications from the side of the Desktop: 
+Control Applications from the side of the Desktop: -> https://extensions.gnome.org/extension/307/dash-to-dock/
 
 #### windowNavigator
 
-Move windows to other workspaces with keyboard: 
+Move windows to other workspaces with keyboard: https://extensions.gnome.org/extension/10/windownavigator/
 
 ### Alternate Tab
 
-Dont group windows in the window switcher:
+Dont group windows in the window switcher: https://extensions.gnome.org/extension/15/alternatetab/
+
+### Dash to panel
+
+Taskbar like in KDE5/4: ->  https://extensions.gnome.org/extension/1160/dash-to-panel/
+
+### Overview Now
+
+Flick from the right to get the Overview.: > https://extensions.gnome.org/extension/1088/overview-now/
+
+### Remove planing in Clock menu
+
+need this: https://extensions.gnome.org/extension/153/nothingtodo/
+
+### Enhanced Run Dialog
+
+The new features currently include:
+- Web-browser support with the use of xdg-open.
+- Email support with the use of xdg-open
+- Calculator mode
+- Search mode with the use of DuckDuckGo
+-> https://extensions.gnome.org/extension/780/enhanced-run-dialog/
 
 
