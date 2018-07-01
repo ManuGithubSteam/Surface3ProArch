@@ -18,6 +18,8 @@ So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gn
 * Make Udev Rule do something cool when Typecover conects
 * ~~Make Krita useable with the stylus~~ works with X11 not with Wayland
 * Optimise scripts for powersave (5 hours instad of 7 without the scripts)
+* Better backlight script
+* Kernel powersave
 * Touchscreen Apps :-)
 * ~~Grub2 keyboard hack, UEFI Keyboard?~~
 * ~~TTY Console Fronts~~
