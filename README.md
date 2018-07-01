@@ -573,9 +573,13 @@ This will deactivate the touch and the Windows button with the screen and after 
 
 Some time for some optimazations :-)
 
+### Install bash-completion
+
+`pacman -Syu bash-completion`
+
 ### Install guake
 
-`pcman -Syu guake`
+`pacman -Syu guake`
 
 After install you can change the options with `guake -p`
 
@@ -752,7 +756,7 @@ Gmail notify in dash: -> https://extensions.gnome.org/extension/154/gmail-notify
 
 KDE4 Like Menu -> https://extensions.gnome.org/extension/327/axe-menu/
 
-#### Pidgin integration
+### Pidgin integration
 
 Popups of messages: https://extensions.gnome.org/extension/782/pidgin-im-integration/
 
@@ -769,7 +773,6 @@ Mac like system Menu: https://extensions.gnome.org/extension/1204/system-menu/
 Shows CPU useage in shell: -> https://extensions.gnome.org/extension/9/systemmonitor/
 
 ### Music integration
-
 Crontrols for rythmbox: -> https://extensions.gnome.org/extension/30/music-integration/
 
 ### SSH Connections
