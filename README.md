@@ -468,6 +468,11 @@ Now powertop and btmon should function without password required.
 
 Laptop mode tools handels the activation of powertop. No need to do it by hand.
 
+Just add this to /etc/rc.local:
+
+`powertop --auto-tune`
+`echo 'on' > '/sys/bus/usb/devices/1-3/power/control';`
+
 ### Power optimizations
 
 For some reason some settings from powertop will not be set when you use the autotune feature.
