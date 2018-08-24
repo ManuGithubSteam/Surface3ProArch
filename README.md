@@ -132,6 +132,29 @@ Put the following in `/etc/NetworkManager/NetworkManager.conf` to make it perman
     [device]  
     wifi.scan-rand-mac-address=no
 
+## Deactivate Bluetooth at login
+
+Download the block_bl.sh. 
+
+It will deactivate your bluetooth when you boot up. You can activate it later again.
+Then put it into the Autostart. As Gnome does not have a good autostart you need some ugly workaround:
+
+Put it here `~/.config/autostart/`
+
+Give execution rights: `chmod +x ~/.config/autostart/block_bl.sh`
+
+Create this file:
+
+`.config/autostart/script_bl.desktop` 
+
+    [Desktop Entry]
+    Type=Application
+    Exec=/home/user/.config/autostart/block_bl.sh
+    Hidden=false
+    X-GNOME-Autostart-enabled=true
+    Name=ScriptAutostartBL
+    Comment=Silly Gnome way to do it
+
 ## Suspend and Hibernate
 
 After some testing it seems that hibernate and secureboot do not work well togehter.
