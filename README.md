@@ -22,7 +22,7 @@ So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gn
 * ~~Make Apps seachable with Alt+Space~~
 * Kernel powersave
 * Touchscreen Apps :-)
-* Deactivate Bluethooth at boot (so its not on in some instances)
+* ~~Deactivate Bluethooth at boot (so its not on in some instances)~~
 * ~~install DIR colors~~
 * ~~Grub2 keyboard hack, UEFI Keyboard?~~
 * ~~TTY Console Fronts~~
