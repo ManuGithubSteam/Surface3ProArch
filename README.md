@@ -14,7 +14,7 @@ So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gn
 * ~~VM Writeback seconds!~~
 * ~~Deactivate Gnome Virt Keyboard on single click~~
   * Use Onboard instead!
-   * Test new keybiard from Gnome 3.28
+   * Test new keyboard from Gnome 3.28
 * Make Udev Rule do something cool when Typecover conects
 * ~~Make Krita useable with the stylus~~ works with X11 not with Wayland
 * Optimise scripts for powersave (5 hours instad of 7 without the scripts)
@@ -337,6 +337,12 @@ Just install iio-sensor-proxy-git from AUR to get the rotation and the backlight
 
 To match the screen rotation with the sytlus execute the `rotate_stylus.sh` script from here. 
 Put it in Gnome Autosttart if you want.
+
+__NOTE:__ Be aware that the xrandr scaling does __NOT work__ correctly when you rotate the screen! It will leave you with a scaling factor of 2 and when you return back, the orginal orientation will be too small. For now i don't know how to get this fixed.
+
+__I opented to deactivate rotation of the Desktop, as I rarely use it:__
+
+`gsettings set org.gnome.settings-daemon.plugins.orientation active false`
 
 ### Keyboard backlight control
 
