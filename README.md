@@ -21,6 +21,7 @@ So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gn
 * Better backlight script
 * ~~Make Apps seachable with Alt+Space~~
 * Kernel powersave
+* Start guake later after the screen is resized
 * Touchscreen Apps :-)
 * Hide Onboard keyboard if hw keyboard is attached
 * ~~Deactivate Bluethooth at boot (so its not on in some instances)~~
