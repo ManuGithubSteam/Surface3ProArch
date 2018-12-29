@@ -39,11 +39,13 @@ So here is to new beginnings with the Microsoft Surface 3 Pro. I will use the Gn
 * ~~Check if laptop mode tools are active ? Powertop related?~~
 * ~~GTK2 Wrapper script!~~
 * ~~Onboard integration in gnomeshell~~
+* HATE GNOME - still open as it gets wors and worse*1
 * Better Gnome expirence (less child like desktop)
   * Show guake if mouse is in top corner
   * https://extensions.gnome.org/extension/1267/no-title-bar/
   * https://extensions.gnome.org/extension/503/always-zoom-workspaces/
 
+*1 Resoning: Besides other things: They deleted drag and drop from the filemanager. !! 
 
 ## Hardware Info
 
@@ -102,7 +104,8 @@ with `makepkg` then install the pakage `makepkg --install`
 
 ### Build and install surface Kernel
 
-__NOTE: The 4.15 kernel in the arch repo seems to support most stuff right now, maybe not needed anymore...__
+__NOTE: The 4.18 kernel in the arch repo seems to support most stuff right now, maybe not needed anymore...__
+__NOTE2: The Kernel 4.19 does not support TOUCH anymore. Stick with 4.18 it supports everything.__
 
 `pacaur -S linux-surfacepro3-git`
 
@@ -609,6 +612,10 @@ This will deactivate the touch and the Windows button with the screen and after 
 ## Optimizations
 
 Some time for some optimazations :-)
+
+### Reactivate Drag and Drop in the Filemanager
+
+`gsettings set org.gnome.nautilus.preferences use-experimental-views false`
 
 ### Install bash-completion && DIR_Colors
 
